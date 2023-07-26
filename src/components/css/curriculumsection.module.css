@@ -67,18 +67,6 @@ ul.curriculums_list > li {
   z-index: 1;
 }
 
-/* .curri_pink_circle {
-  width: 3rem;
-  height: 3rem;
-  background: #FFD4D4;
-  border: solid 10px none;
-  border-radius: 50%;
-  position: absolute;
-  left: 1.8rem;
-  top: 2.0rem;
-  z-index: 0;
-} */
-
 .curri_title::before {
   content:"";
   width: 3rem;
