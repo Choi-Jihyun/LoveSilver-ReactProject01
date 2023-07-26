@@ -1,0 +1,53 @@
+a {
+  color:black;
+  text-decoration:none; 
+}
+
+.hidden {
+  width: 1px;
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  position: absolute;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.contents {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.title {
+  font: 600 3.125rem 'Abhaya Libre';
+  color: black;
+}
+
+.subtitle {
+  font: normal 1rem "Noto sans KR";
+  color: #3f3f3f;
+}
+
+.green_button a{
+  font: normal 0.875rem "Noto sans KR";
+  color: white;
+  border: solid 1px none;
+  border-radius: 1px;
+  background: #AACB73;
+  padding: 0.5rem 2.5rem;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+

@@ -1,0 +1,74 @@
+div#header_wrap {
+  width: 100%;
+  height: 330px;
+  height: 80px;
+  background: rgb(251, 213, 213);
+  background: transparent;
+
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 10;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+header {
+  width: 100%; 
+  max-width: 1200px;
+  height: 80px;
+
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+
+header > h1 {
+  width: 30%;
+  height: 80px;
+  position: absolute;
+  left: 20px;
+  top: 0px;
+
+  float: left;
+}
+
+header > h1 span {
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+
+  font: normal 40px "Island Moments";
+  color: white
+}
+
+nav#mainmenu {
+  width: 60%;
+  height: 80px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+
+  float: left;
+}
+
+ul#mainmenu_list {
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  margin-right: 20px;
+}
+
+ul#mainmenu_list > li > a {
+  font: normal 16px "Noto sans KR";
+  color: white;
+}

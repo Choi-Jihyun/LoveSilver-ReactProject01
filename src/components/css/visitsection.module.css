@@ -1,0 +1,117 @@
+section#visit_section {
+  width: 100%;
+  height: 50rem;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  /* border: solid 3px palevioletred */
+}
+
+div#background {
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+
+div#bg_left {
+  width: 37.5rem;
+  height: 35.3125rem;
+  background: #AED580;
+  position: absolute;
+  left: 0;
+  top: 43rem;
+}
+
+div#bg_right {
+  width: 37.5rem;
+  height: 29.75rem;
+  background: #FFF176;
+  position: absolute;
+  right: 0;
+  top: 25rem;
+}
+
+div#bg_png {
+  width: 24rem;
+  height: 24rem;
+  background: url('/public/images/bg_icon.png');
+  position: absolute;
+  left: -4rem;
+  top: 39rem;
+}
+
+div#visit_contents {
+  width: 17rem;
+  height: 23rem;
+  position: absolute;
+  left: 10%;
+  top: 26%;
+}
+
+.visit_gallery_controller {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.visit_gallery_controller span {
+  font: normal 2.5rem "Noto sans KR";
+  color: #444;
+  padding: 0.7rem;
+  position: relative;
+  top: -0.3rem;
+}
+
+.angle_button {
+  font-size: 2.5rem;
+}
+
+.visit_title {
+  font: bold 1.7rem "Noto sans KR";
+  color: black;
+  position: absolute;
+  left: 0;
+  top: 5rem;
+}
+
+.visit_subtitle {
+  font: normal 0.875rem "Noto sans KR";
+  color: #444;
+  line-height: 200%;
+  position: absolute;
+  left: 0;
+  top: 9.5rem;
+}
+
+/* 버튼 디자인 -> App.css */
+
+ul.visit_gallery_list {
+  width: 70rem;
+  height: 26rem;
+  /* border: solid 2px red; */
+  position: absolute;
+  left: 10%;
+  margin-left: 17rem;
+  top: 23%;
+  /* border: solid 2px palevioletred; */
+}
+
+ul.visit_gallery_list > li {
+  width: 19rem;
+  height: 26rem;
+  /* border: solid 1px palegreen; */
+  float: left;
+  margin-right: 2.7rem;
+}
+
+ul.visit_gallery_list > li:nth-child(1){
+  background: url('/public/images/visit01.png') center no-repeat;
+}
+ul.visit_gallery_list > li:nth-child(2){
+  background: url('/public/images/visit02.png') center no-repeat;
+}
+ul.visit_gallery_list > li:nth-child(3){
+  background: url('/public/images/visit03.png') center no-repeat;
+}
+
+
