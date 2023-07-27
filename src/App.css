@@ -38,6 +38,11 @@ body {
   color: #3f3f3f;
 }
 
+.body_text {
+  font: normal 0.75rem "Noto sans KR";
+  line-height: 1.2rem;
+}
+
 .green_button a{
   font: normal 0.875rem "Noto sans KR";
   color: white;

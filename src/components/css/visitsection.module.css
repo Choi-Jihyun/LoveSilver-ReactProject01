@@ -106,12 +106,15 @@ ul.visit_gallery_list > li {
 
 ul.visit_gallery_list > li:nth-child(1){
   background: url('/public/images/visit01.png') center no-repeat;
+  background-size: cover;
 }
 ul.visit_gallery_list > li:nth-child(2){
   background: url('/public/images/visit02.png') center no-repeat;
+  background-size: cover;
 }
 ul.visit_gallery_list > li:nth-child(3){
   background: url('/public/images/visit03.png') center no-repeat;
+  background-size: cover;
 }
 
 
