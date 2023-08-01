@@ -21,8 +21,11 @@ export default function GalleryMain() {
     {index: 4, text: '수원 광교', fullPlaceName: '수원 광교 LoveSilver'}
   ];
 
+  
+
   const [selectPlace, setSelectPlace] = useState(places[0].fullPlaceName)
   const [placeItems, setPlaceItems] = useState([])
+
 
 
   useEffect(()=>{
@@ -48,7 +51,7 @@ export default function GalleryMain() {
           <ul className={styles.select_place_list}>
             {
               places.map((item)=>(
-                <li key={item.index} className={selectPlace === item.fullPlaceName ? 'selected' : ''} onClick={()=>{
+                <li key={item.index} className={selectPlace === item.fullPlaceName ? styles.selected : ''} onClick={()=>{
                   setSelectPlace(item.fullPlaceName)
 
                 }}>

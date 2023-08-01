@@ -56,7 +56,7 @@ body {
   bottom: 0;
 }
 
-/* .swiper-button-prev {
+.swiper-button-prev {
   background: url('/public/images/swiper_left.png') no-repeat;
   background-position: center;
 }
@@ -64,7 +64,7 @@ body {
 .swiper-button-next {
   background: url('/public/images/swiper_right.png') no-repeat;
   background-position: center;
-} */
+}
 .swiper-button-next::after,
 .swiper-button-prev::after {
   display: none;
@@ -72,4 +72,28 @@ body {
   left: 0px;
   top: 0px;
   z-index: 10;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

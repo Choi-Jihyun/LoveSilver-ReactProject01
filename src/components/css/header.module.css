@@ -68,7 +68,25 @@ ul#mainmenu_list {
   margin-right: 20px;
 }
 
+ul#mainmenu_list > li {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+
 ul#mainmenu_list > li > a {
   font: normal 16px "Noto sans KR";
   color: white;
+}
+
+ul#mainmenu_list > li > a.selected::after {
+  content:"";
+  width: 5rem;
+  height: 1px;
+  background: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 2.3rem;
 }
