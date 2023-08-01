@@ -34,7 +34,7 @@ ul.review_list {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
-  align-content: start;
+  align-content: flex-start;
   gap: 2rem;
 }
 ul.review_list > li {

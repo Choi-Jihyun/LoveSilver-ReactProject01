@@ -53,10 +53,10 @@ export default function VisitLocation() {
             <div className={styles.location_directions}>
               <p className={styles.location_detail_category}>directions</p>
               <ul className={styles.direction_list}>
-                <li><Link to='/'>카카오맵으로 길찾기</Link></li>
-                <li><Link to='/'>네이버맵으로 길찾기</Link></li>
-                <li><Link to='/'>티맵으로 길찾기</Link></li>
-                <li><Link to='/'>구글지도로 길찾기</Link></li>
+                <li><Link to='https://map.kakao.com/?q=%EC%9A%A9%EC%9D%B8%20%EB%8F%99%EB%B0%B1%20LoveSilver' target="_blank" rel="noopener noreferrer">카카오맵으로 길찾기</Link></li>
+                <li><Link to='https://map.naver.com/v5/search/%EC%9A%A9%EC%9D%B8%20%EB%8F%99%EB%B0%B1%20LoveSilver?c=15,0,0,0,dh' target="_blank" rel="noopener noreferrer">네이버맵으로 길찾기</Link></li>
+                <li><Link to='https://surl.tmobiapi.com/a670daa6' target="_blank" rel="noopener noreferrer">티맵으로 길찾기</Link></li>
+                <li><Link to='https://www.google.co.kr/maps/search/용인+동백+LoveSilver' target="_blank" rel="noopener noreferrer">구글지도로 길찾기</Link></li>
               </ul>
             </div>
           </div>

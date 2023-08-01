@@ -1,0 +1,62 @@
+[
+  {
+    "id":"001", 
+    "place":"용인 동백 LoveSilver",
+    "images": [
+      "./images/gallery_1_00.jpeg",
+      "./images/gallery_1_01.jpeg",
+      "./images/gallery_1_02.jpeg",
+      "./images/gallery_1_03.jpeg"
+    ],
+    "title":"나만의 악기 만들기 활동",
+    "date":"2023.07.26",
+    "body_text":"음악 수업에서 나만의 악기를 만드는 활동을 진행했습니다."    
+  },
+  {
+    "id":"002", 
+    "place":"성남 판교 LoveSilver",
+    "images": [
+      "./images/gallery_02_01.png",
+      "./images/gallery_02_02.jpeg"
+    ],
+    "title":"책 쓰기 활동",
+    "date":"2023.07.24",
+    "body_text":"인문 수업에서 주제를 잡고 책을 쓰는 활동을 진행했습니다."    
+  },
+  {
+    "id":"003", 
+    "place":"용인 동백 LoveSilver",
+    "images": [
+      "./images/gallery_03_01.jpeg",
+      "./images/gallery_03_02.jpeg",
+      "./images/gallery_03_03.jpeg"
+    ],
+    "title":"주변 재료로 개성 있는 캐릭터 만들기",
+    "date":"2023.07.20",
+    "body_text":"미술 수업에서 자신의 개성에 맞는 미술 작품을 만드는 활동을 진행했습니다."    
+  },
+  {
+    "id":"004", 
+    "place":"사랑 교회",
+    "images": [
+      "./images/gallery_04_01.jpeg",
+      "./images/gallery_04_02.jpeg",
+      "./images/gallery_1_03.jpeg"
+    ],
+    "title":"사랑 합창단",
+    "date":"2023.07.19",
+    "body_text":"음악 수업에서 합창 활동을 진행했습니다."    
+  },
+  {
+    "id":"005", 
+    "place":"수원 광교 LoveSilver",
+    "images": [
+      "./images/gallery_05_01.jpeg",
+      "./images/gallery_05_02.jpeg"
+    ],
+    "title":"시 쓰기 활동",
+    "date":"2023.07.15",
+    "body_text":"문학 수업에서 특정 사물을 보고 시를 작성하는 활동을 진행했습니다."    
+  }
+
+]

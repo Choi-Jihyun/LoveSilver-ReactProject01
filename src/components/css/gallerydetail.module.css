@@ -1,0 +1,41 @@
+section#gallery_detail_section {
+  width: 100%;
+  height: auto;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+div.title_wrap {
+  width: 100%;
+  height: auto;
+  padding-top: 5rem;
+  text-align: center;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.gallery_title {
+  font: bold 2rem "Noto sans KR";
+}
+
+.gallery_place {
+  font: normal 1rem "Noto sans KR";
+  padding-top: 1cqmin;
+}
+
+div.gallery_date {
+  width: 100%;
+  color: #777;
+  text-align: end;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+div.gallery_body_text {
+  width: 100%;
+  padding-top: 3rem;
+  position: relative;
+  left: 0;
+  top: 0;
+}

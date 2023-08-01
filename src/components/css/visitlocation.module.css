@@ -81,18 +81,19 @@ div.location_detail_wrap {
 
 .location_address_and_call {
   width: 60%;
-  height: 15.5rem;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: left;
   align-content: flex-start;
-  gap: 8vw;
+  border-right: solid 1px black;
+  padding-right: 2px;
+  box-sizing: border-box;
 }
 
 .location_title {
   font: normal 1.875rem "Noto sans KR";
-  
 }
 
 .location_directions {
@@ -101,15 +102,7 @@ div.location_detail_wrap {
   left: 0;
   top: 0;
 }
-.location_directions::before {
-  content:"";
-  width: 1px;
-  height: 7rem;
-  background: black;
-  position: absolute;
-  left: -13%;
-  top: 0;
-}
+
 .location_detail_category {
   text-transform: uppercase;
   font: normal 0.75rem "Noto sans KR";
@@ -122,6 +115,11 @@ div.location_detail_wrap {
 .location_detail_text {
   font: normal 0.875rem "Noto sans KR";
   line-height: 1.6rem;
+}
+
+.location_address {
+  padding-right: 8vw;
+  margin-bottom: 30px;
 }
 
 ul.direction_list {

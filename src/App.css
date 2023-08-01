@@ -56,3 +56,20 @@ body {
   bottom: 0;
 }
 
+/* .swiper-button-prev {
+  background: url('/public/images/swiper_left.png') no-repeat;
+  background-position: center;
+}
+
+.swiper-button-next {
+  background: url('/public/images/swiper_right.png') no-repeat;
+  background-position: center;
+} */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  z-index: 10;
+}

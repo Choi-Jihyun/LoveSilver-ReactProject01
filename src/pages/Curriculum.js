@@ -1,7 +1,12 @@
 import React from 'react'
+import BlackMenuBg from '../components/BlackMenuBg'
+import CurriculumSection from '../components/CurriculumSection'
 
 export default function Curriculum() {
   return (
-    <div>Curriculum</div>
+    <div>
+      <BlackMenuBg/>
+      <CurriculumSection />
+    </div>
   )
 }
