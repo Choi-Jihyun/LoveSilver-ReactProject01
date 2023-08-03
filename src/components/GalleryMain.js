@@ -20,13 +20,9 @@ export default function GalleryMain() {
     {index: 3, text: '성남 판교', fullPlaceName: '성남 판교 LoveSilver'},
     {index: 4, text: '수원 광교', fullPlaceName: '수원 광교 LoveSilver'}
   ];
-
-  
-
   const [selectPlace, setSelectPlace] = useState(places[0].fullPlaceName)
+
   const [placeItems, setPlaceItems] = useState([])
-
-
 
   useEffect(()=>{
     if(selectPlace === '모든 지점') {
@@ -53,7 +49,6 @@ export default function GalleryMain() {
               places.map((item)=>(
                 <li key={item.index} className={selectPlace === item.fullPlaceName ? styles.selected : ''} onClick={()=>{
                   setSelectPlace(item.fullPlaceName)
-
                 }}>
                   <Link>{item.text}</Link>
                 </li>
@@ -88,12 +83,8 @@ export default function GalleryMain() {
                 </li>
               ))
             }
-            
-
           </ul>
         </div>
-
-
       </section>
     </div>
   )

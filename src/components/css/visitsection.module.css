@@ -40,18 +40,31 @@ div#bg_png {
   top: 39rem;
 }
 
+div#visit_contents_gallery_wrap {
+  width: 1200px;
+  height: 30rem;
+  position: relative;
+  left: 0;
+  top: 10rem;
+}
+
 div#visit_contents {
   width: 17rem;
   height: 23rem;
   position: absolute;
-  left: 10%;
-  top: 26%;
+  left: 8%;
+  top: 12%;
+  z-index: 20;
 }
 
 .visit_gallery_controller {
   position: absolute;
   left: 0;
   top: 0;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 }
 
 .visit_gallery_controller span {
@@ -64,6 +77,12 @@ div#visit_contents {
 
 .angle_button {
   font-size: 2.5rem;
+  color: black;
+  transition: all 0.2s ease-out;
+}
+
+.angle_button.disable {
+  color: rgb(163, 163, 163);
 }
 
 .visit_title {
@@ -82,24 +101,46 @@ div#visit_contents {
   left: 0;
   top: 9.5rem;
 }
+div.white_gradient_bg {
+  width: 40%;
+  height: 100%;
+  background: rgb(255,255,255); /* Old browsers */
+  background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 90%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%,rgba(255,255,255,0) 90%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  rgba(255,255,255,1) 0%, rgba(255,255,255,1) 75%,rgba(255,255,255,0) 90%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
 
 /* 버튼 디자인 -> App.css */
+div.visit_gallery {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 
-ul.visit_gallery_list {
+.visit_swiper img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* ul.visit_gallery_list {
   width: 70rem;
   height: 26rem;
-  /* border: solid 2px red; */
   position: absolute;
   left: 10%;
   margin-left: 17rem;
   top: 23%;
-  /* border: solid 2px palevioletred; */
 }
 
 ul.visit_gallery_list > li {
   width: 19rem;
   height: 26rem;
-  /* border: solid 1px palegreen; */
   float: left;
   margin-right: 2.7rem;
 }
@@ -115,6 +156,6 @@ ul.visit_gallery_list > li:nth-child(2){
 ul.visit_gallery_list > li:nth-child(3){
   background: url('/public/images/visit03.png') center no-repeat;
   background-size: cover;
-}
+} */
 
 

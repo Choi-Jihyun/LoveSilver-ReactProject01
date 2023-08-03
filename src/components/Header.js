@@ -10,13 +10,14 @@ export default function Header() {
     {menu_name: '갤러리', menu_link: '/gallery'}, 
     {menu_name: '문의', menu_link: '/inquire'}
   ];
-  const [selectMenu, setSelectMenu] = useState([])
+  const [selectMenu, setSelectMenu] = useState('')
+
 
   return (
     <div id={styles.header_wrap}>
       <header>
         <h1>
-          <Link to='/'>
+          <Link to='/' onClick={() => setSelectMenu('')}>
             <span>LoveSilver</span>
           </Link>
         </h1>
@@ -27,8 +28,9 @@ export default function Header() {
               menu.map((item)=>(
                 <li>
                   <Link to={item.menu_link} className={selectMenu === item.menu_name ? styles.selected : ''} onClick={()=>{
-                  setSelectMenu(item.menu_name)
-                }}>{item.menu_name}</Link>
+                    setSelectMenu(item.menu_name)}}>
+                  {item.menu_name}
+                  </Link>
                 </li>
               ))
             }

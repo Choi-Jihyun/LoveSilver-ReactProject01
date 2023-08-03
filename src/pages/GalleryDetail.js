@@ -9,17 +9,13 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-import { FreeMode, Navigation, Thumbs, Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 
 export default function GalleryDetail() {
   const {productId} = useParams()
   const [allProducts] = useProducts()
   const [productItem, setProductItem] = useState([])
   const {pathname}= useLocation()
-  
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const thumbsSwiperRef = useRef(null);
-
 
   useEffect(() => {
     const productItem = allProducts.filter((item)=>(item.id === productId))
