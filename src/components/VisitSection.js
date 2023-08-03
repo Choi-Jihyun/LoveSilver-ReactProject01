@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styles from './css/visitsection.module.css'
 import { Link } from 'react-router-dom'
 import { TfiAngleLeft, TfiAngleRight } from 'react-icons/tfi'
-// import useProducts from './hooks/useProducts';
+import usePlaces from '../hooks/usePlaces';
 
 // 스와이퍼 적용
 import { useState } from 'react';
@@ -21,6 +21,8 @@ export default function VisitSection() {
   const [isFirstSlide, setIsFirstSlide] = useState(true);
   const [isLastSlide, setIsLastSlide] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  
+
   
   const goPrevSlide = () => {
     if (swiper) {swiper.slidePrev();}
@@ -51,7 +53,10 @@ export default function VisitSection() {
     {index: 4, place: '수원 광교 LoveSilver', address: '경기도 수원시 광교 7길 수원 광교 LoveSilver', call: '010-444-0000', img: '/images/visit01.png'}
   ]
 
-  // const [allProducts] = useProducts()
+  const [allPlaces] = usePlaces()
+  useEffect(()=>{
+    console.log(allPlaces)
+  },[])
 
   return (
 
@@ -70,17 +75,28 @@ export default function VisitSection() {
               <span>{String(currentSlide + 1).padStart(2, '0')}</span>
               <TfiAngleRight onClick={goNextSlide} className={`${styles.angle_button} ${styles.angle_right} ${isLastSlide ? styles.disable : ''}`}/>
             </div>
-            <p className={styles.visit_title}>{visit_view_list[currentSlide].place}</p>
 
-            <p className={styles.visit_subtitle}>
-              {visit_view_list[currentSlide].address}<br/>
-              TEL. {visit_view_list[currentSlide].call}<br/>
-              FAX.{visit_view_list[currentSlide].call}<br/>
-              E-mail. lovesilver@naver.com
-            </p>
-            <p className='green_button'>
-              <Link to= '/visit'>방문하기</Link>
-            </p>
+            { 
+            
+              allPlaces.map((item)=>(
+                // <div key={item.index}>
+
+                //   <p className={styles.visit_title}>{item.place}</p>
+
+                //   <p className={styles.visit_subtitle}>
+                //     {item.address}<br/>
+                //     TEL. {item.call}<br/>
+                //     FAX.{item.call}<br/>
+                //     E-mail. lovesilver@naver.com
+                //   </p>
+                //   <p className='green_button'>
+                //     <Link to= '/visit'>방문하기</Link>
+                //   </p>
+                // </div>
+                <></>
+              ))
+            }
+
           </div>
           <div className={styles.white_gradient_bg}></div>
           <div className={styles.visit_gallery}>

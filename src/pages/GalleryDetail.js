@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import BlackMenuBg from '../components/BlackMenuBg'
 import styles from '../components/css/gallerydetail.module.css'
 import { useLocation, useParams } from 'react-router-dom'
-import useProducts from '../components/hooks/useProducts'
+import useProducts from '..hooks/useProducts'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';

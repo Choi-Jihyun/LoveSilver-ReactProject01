@@ -34,18 +34,6 @@ export default function Header() {
                 </li>
               ))
             }
-            {/* <li>
-              <Link to='/visit' className={styles.selected}>방문</Link>
-            </li>
-            <li>
-              <Link to='/curriculum' className={styles.selected}>커리큘럼</Link>
-            </li>
-            <li>
-              <Link to='/gallery' className={styles.selected}>갤러리</Link>
-            </li>
-            <li>
-              <Link to='/inquire' className={styles.selected}>문의</Link>
-            </li> */}
           </ul>
         </nav>
       </header>

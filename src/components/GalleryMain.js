@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './css/gallerymain.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import useProducts from './hooks/useProducts';
+import useProducts from '../hooks/useProducts';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
