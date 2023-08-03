@@ -23,7 +23,7 @@ body {
 }
 
 html::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
   background-color: transparent;
   position: fixed;
   left: 0;

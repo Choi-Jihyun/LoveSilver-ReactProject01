@@ -1,0 +1,30 @@
+[
+    {
+      "index": 1, 
+      "place": "용인 동백 LoveSilver", 
+      "address": "용인시 동백로 7길 용인 동백 LoveSilver", 
+      "call": "010-111-0000", 
+      "img": "/images/visit01.png"
+    },
+    {
+      "index": 2, 
+      "place": "사랑 교회", 
+      "address": "서울특별시 서초구 사랑로 7길 사랑 교회", 
+      "call": "010-222-0000", 
+      "img": "/images/visit02.png"
+    },
+    {
+      "index": 3, 
+      "place": "성남 판교 LoveSilver", 
+      "address": "경기도 성남시 판교 7길 성남 판교 LoveSilver", 
+      "call": "010-333-0000", 
+      "img": "/images/visit03.png"
+    },
+    {
+      "index": 4, 
+      "place": "수원 광교 LoveSilver", 
+      "address": "경기도 수원시 광교 7길 수원 광교 LoveSilver", 
+      "call": "010-444-0000", 
+      "img": "/images/visit01.png"
+    }
+]

@@ -46,13 +46,6 @@ export default function VisitSection() {
     }
   }, [swiper]);
 
-  const visit_view_list = [
-    {index: 1, place: '용인 동백 LoveSilver', address: '용인시 동백로 7길 용인 동백 LoveSilver', call: '010-111-0000', img: '/images/visit01.png'},
-    {index: 2, place: '사랑 교회', address: '서울특별시 서초구 사랑로 7길 사랑 교회', call: '010-222-0000', img: '/images/visit02.png'},
-    {index: 3, place: '성남 판교 LoveSilver', address: '경기도 성남시 판교 7길 성남 판교 LoveSilver', call: '010-333-0000', img: '/images/visit03.png'},
-    {index: 4, place: '수원 광교 LoveSilver', address: '경기도 수원시 광교 7길 수원 광교 LoveSilver', call: '010-444-0000', img: '/images/visit01.png'}
-  ]
-
   const [allPlaces] = usePlaces()
   useEffect(()=>{
     console.log(allPlaces)
@@ -79,21 +72,20 @@ export default function VisitSection() {
             { 
             
               allPlaces.map((item)=>(
-                // <div key={item.index}>
+                <div key={item.index}>
 
-                //   <p className={styles.visit_title}>{item.place}</p>
+                  <p style={{ display: currentSlide + 1 === item.index ? 'block' : 'none' }} className={`${styles.visit_title}`}>{item.place}</p>
 
-                //   <p className={styles.visit_subtitle}>
-                //     {item.address}<br/>
-                //     TEL. {item.call}<br/>
-                //     FAX.{item.call}<br/>
-                //     E-mail. lovesilver@naver.com
-                //   </p>
-                //   <p className='green_button'>
-                //     <Link to= '/visit'>방문하기</Link>
-                //   </p>
-                // </div>
-                <></>
+                  <p style={{ display: currentSlide + 1 === item.index ? 'block' : 'none' }} className={styles.visit_subtitle}>
+                    {item.address}<br/>
+                    TEL. {item.call}<br/>
+                    FAX.{item.call}<br/>
+                    E-mail. lovesilver@naver.com
+                  </p>
+                  <p className='green_button'>
+                    <Link to= '/visit'>방문하기</Link>
+                  </p>
+                </div>
               ))
             }
 
@@ -114,7 +106,7 @@ export default function VisitSection() {
               onSlideChange={handleSlideChange}
             >
               {
-                visit_view_list.map((item)=>(
+                allPlaces.map((item)=>(
                   <SwiperSlide><img src={item.img} alt='방문하기'/></SwiperSlide>
                 ))
               }

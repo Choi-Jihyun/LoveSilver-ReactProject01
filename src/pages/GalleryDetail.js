@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BlackMenuBg from '../components/BlackMenuBg'
 import styles from '../components/css/gallerydetail.module.css'
 import { useLocation, useParams } from 'react-router-dom'
-import useProducts from '..hooks/useProducts'
+import useProducts from '../hooks/useProducts'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -30,7 +30,7 @@ export default function GalleryDetail() {
     return null;
   }
 
-  const item = productItem[0];
+  // const item = productItem[0];
   
   return (
     <div>
