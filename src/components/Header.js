@@ -3,38 +3,50 @@ import styles from './css/header.module.css';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import usePlaces from '../hooks/usePlaces';
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 export default function Header() {
 
   const menu = [
-    {name: '방문', menu_link: '/visit'},
-    {name: '커리큘럼', menu_link: '/curriculum'}, 
-    {name: '갤러리', menu_link: '/gallery'}, 
-    {name: '문의', menu_link: '/inquire'}
+    {name: '방문', link: '/visit'},
+    {name: '커리큘럼', link: '/curriculum'}, 
+    {name: '갤러리', link: '/gallery'}, 
+    {name: '문의', link: '/inquire'}
   ];
   const [selectMenu, setSelectMenu] = useState('')
   const [hoverMenu, setHoverMenu] = useState('')
 
   const handleMouseEnter = (index) => {
     setHoverMenu(menu[index].name);
-    gsap.to(headerRef.current, { height: '20rem', duration: 0.3, background: 'white' });
+    gsap.to(headerRef.current, { height: '21.4rem', duration: 0.3, background: 'white', borderBottom: 'solid 1px #ccc', boxShadow: '0px 0px 10px 0px #ccc' });
     gsap.to('span', { color: 'black', duration: 0.3 });
   };
 
   const handleMouseLeave = () => {
     setHoverMenu('');
-    gsap.to(headerRef.current, { height: 'auto', duration: 0.3, background: 'transparent' });
+    gsap.to(headerRef.current, { height: '80px', duration: 0.3, background: 'transparent', borderBottom: 'none', boxShadow: 'none'  });
     gsap.to('span', { color: 'white', duration: 0.3 });
   };
+  
+  const arrowMouseEnter = (index) => {
+    const arrowRef = arrowRightRefs.current[index];
+    gsap.to(arrowRef, {paddingRight: '0.3rem', duration: 0.2})
+  }
+  const arrowMouseLeave = (index) => {
+    const arrowRef = arrowRightRefs.current[index];
+    gsap.to(arrowRef, {paddingRight: '0rem', duration: 0.2})
+  }
 
   const headerRef = useRef(null);
   const liRefs = useRef([]);
+  const arrowRightRefs = useRef([]);
   const [allPlaces] = usePlaces();
+  // const blackRefs = useRef
 
   return (
     <div 
       id={styles.header_wrap} 
-      // onMouseLeave={handleMouseLeave} 
+      onMouseLeave={handleMouseLeave} 
       ref={headerRef}
     >
       <header>
@@ -56,7 +68,7 @@ export default function Header() {
                     className={hoverMenu === item.name ? styles.selected : ''}
                   >
                     <Link 
-                      to={item.menu_link} 
+                      to={item.link} 
                       className={selectMenu === item.name ? styles.selected : ''} 
                       onClick={()=>{
                         setSelectMenu(item.name)
@@ -69,22 +81,58 @@ export default function Header() {
               }
             </ul>
           </nav>
-        </div>
-        <div className={`${styles.submenu_wrap} ${styles.selected}`}>
-          <div className={styles.submenu_list_wrap}>
-            <p>LoveSilver</p>
 
+        <div className={`${styles.submenu_wrap} ${hoverMenu === menu[0].name ? styles.selected : ''}`}>
+          <div className={styles.submenu_list_withus_wrap}>
+            <div className={styles.submenu_list_wrap}>
+              <p className={styles.submenu_explain_el}>LoveSilver</p>
+              {
+                allPlaces.map((item)=>(
+                  <Link to='/visit'>
+                    <p className={styles.places}>
+                      {item.place}
+                    </p>
+                  </Link>
+                ))
+              }
+            </div>
+            <div className={styles.with_us_wrap}>
+              <p className={styles.with_us}>LoveSilver 함께하기</p>
+            </div>
+          </div>
+          <div className={styles.submenu_img_wrap}>
             {
-              allPlaces.map((item)=>(
-                <p>
-                  {item.place}
-                </p>
+              allPlaces.slice(0, 2).map((item, index)=>(
+                <div className={styles.submenu_img_content} key={index} onMouseEnter={() => arrowMouseEnter(index)} onMouseLeave={() => arrowMouseLeave(index)}>
+                  <Link to='/visit'>
+                    <img src={item.placeImg} alt='이미지' />
+                    <div class={styles.place_text_wrap}>
+                      <p className={styles.place_name}>{item.place}</p>
+                      <p className={styles.visit_button}>
+                        <p className={styles.visit_text} ref={(el) => (arrowRightRefs.current[index] = el)}>visit</p>
+                        <FaLongArrowAltRight className={styles.arrow_right_icon}/>
+                      </p>
+                    </div>
+                  </Link>
+                </div>
               ))
             }
           </div>
-          <div className={styles.submenu_img_wrap}>
-              
-          </div>
+        </div>
+          
+        <div className={`${styles.submenu_wrap} ${hoverMenu === menu[1].name ? styles.selected : ''}`}>
+          <div>커리큘럼</div>
+        </div>
+
+        <div className={`${styles.submenu_wrap} ${hoverMenu === menu[2].name ? styles.selected : ''}`}>
+          <div>갤러리</div>
+        </div>
+
+        <div className={`${styles.submenu_wrap} ${hoverMenu === menu[3].name ? styles.selected : ''}`}>
+          <div>문의</div>
+        </div>
+
+
         </div>
       </header>
     </div>
