@@ -3,6 +3,7 @@ import styles from './css/header.module.css';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import usePlaces from '../hooks/usePlaces';
+import useMenus from '../hooks/useMenus';
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 export default function Header() {
@@ -19,13 +20,13 @@ export default function Header() {
   const handleMouseEnter = (index) => {
     setHoverMenu(menu[index].name);
     gsap.to(headerRef.current, { height: '21.4rem', duration: 0.3, background: 'white', borderBottom: 'solid 1px #ccc', boxShadow: '0px 0px 10px 0px #ccc' });
-    gsap.to('span', { color: 'black', duration: 0.3 });
+    gsap.to( '.change_text_color', { color: 'black', duration: 0.3 });
   };
 
   const handleMouseLeave = () => {
     setHoverMenu('');
     gsap.to(headerRef.current, { height: '80px', duration: 0.3, background: 'transparent', borderBottom: 'none', boxShadow: 'none'  });
-    gsap.to('span', { color: 'white', duration: 0.3 });
+    gsap.to('.change_text_color', { color: 'white', duration: 0.3 });
   };
   
   const arrowMouseEnter = (index) => {
@@ -41,7 +42,7 @@ export default function Header() {
   const liRefs = useRef([]);
   const arrowRightRefs = useRef([]);
   const [allPlaces] = usePlaces();
-  // const blackRefs = useRef
+  const [allMenus] = useMenus();
 
   return (
     <div 
@@ -53,7 +54,7 @@ export default function Header() {
         <div id={styles.mainmenu_wrap}>
           <h1>
             <Link to='/' onClick={() => setSelectMenu('')}>
-              <span>LoveSilver</span>
+              <span className='change_text_color'>LoveSilver</span>
             </Link>
           </h1>
           <nav id={styles.mainmenu}>
@@ -74,7 +75,7 @@ export default function Header() {
                         setSelectMenu(item.name)
                       }}
                     >
-                      <span>{item.name}</span>
+                      <span className='change_text_color'>{item.name}</span>
                     </Link>
                   </li>
                 ))
