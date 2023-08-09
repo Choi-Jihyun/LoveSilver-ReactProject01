@@ -23,12 +23,16 @@ body {
 }
 
 html::-webkit-scrollbar {
-  width: 11px;
+  width: 13px;
   background-color: transparent;
   position: fixed;
   left: 0;
   top: 0;
   z-index: 10;
+}
+
+html:hover::-webkit-scrollbar {
+  width: 14px
 }
 
 html::-webkit-scrollbar-thumb {

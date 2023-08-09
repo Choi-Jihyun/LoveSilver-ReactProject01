@@ -41,7 +41,9 @@ div.visit_introduce_img1 {
   top: 0;
   margin-top: 5rem;
 
-  background: url('/public/images/visit_introduce_img01.jpg') center no-repeat;
+  background-image: url('/public/images/visit_introduce_img00_0.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -52,7 +54,9 @@ div.visit_introduce_img1 {
   right: 10%;
   top: 7rem;
 
-  background: url('/public/images/visit_introduce_img02.jpg') center no-repeat;
+  background-image: url('/public/images/visit_introduce_img00_1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 

@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './css/mainvisual.module.css'
 import { Link } from 'react-router-dom';
 import { TfiAngleRight, TfiAngleDown } from "react-icons/tfi";
+import gsap from 'gsap';
+
 
 export default function MainVisual() {
+  useEffect(()=>{
+    gsap.to(angleDownWrapRef.current, {top: "2rem", duration: 0.3})
+  }, [])
+
+  const angleDownWrapRef = useRef()
   return (
     <div id={styles.main_visual_wrap}>
       <section id={styles.main_visual}>
@@ -23,7 +30,9 @@ export default function MainVisual() {
             </div>
             <div id={styles.scroll_instruction}>
               <p className={styles.plus_text}>scroll</p>
-              <TfiAngleDown className={styles.angle_down}/>
+              <div className={styles.scoll_icon_wrap} ref={angleDownWrapRef}>
+                <TfiAngleDown className={styles.angle_down}/>
+              </div>
             </div>
           </div>
         </div>

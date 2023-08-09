@@ -1,18 +1,23 @@
 import React, { useState } from 'react'
 import styles from './css/visitlocation.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk';
+import usePlaces from '../hooks/usePlaces';
 
 export default function VisitLocation() {
   const [level, setLevel] = useState(2);
+  const {placeId} = useParams()
+  const [allPlaces] = usePlaces()
+  const selectedPlace = allPlaces.find(place => place.index === parseInt(placeId));
+  // selectedPlace 사용할 때 selectedPlace? 사용하기
 
   return (
     <div id={styles.visit_location_wrap} className='contents'>
       <section id={styles.visit_location}>
-        <h2 className='hidden'>해당 지점 위치</h2>
+        <h2 className='hidden'>{selectedPlace?.place} 위치</h2>
         <div className={styles.title_wrap}>
-          <p className='subtitle'>아름다운 동백</p>
-          <p className='title'>Located In Yong-in<br/> Dongbaeg</p>
+          <p className='subtitle'>아름다운 {selectedPlace?.locationName[0].text}</p>
+          <p className='title'>Located In {selectedPlace?.locationName[1].text}<br/> {selectedPlace?.locationName[2].text}</p>
         </div>
         <div className={styles.map_api}>
           <Map 
@@ -23,7 +28,7 @@ export default function VisitLocation() {
           >
             <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}></MapMarker>
             <CustomOverlayMap position={{ lat: 33.55635, lng: 126.795841 }}>
-              <div className='overlay'>용인 동백 LoveSilver</div>
+              <div className='overlay'>{selectedPlace?.place}</div>
             </CustomOverlayMap>
             <div class={styles.map_buttons}>
               <button onClick={() => setLevel(level + 1)} className={styles.minus_button}>-</button>
@@ -33,7 +38,7 @@ export default function VisitLocation() {
         </div>
         <div className={styles.location_info}>
           <div className={styles.location_title_wrap}>
-            <p className={styles.location_title}>용인 동백 LoveSilver</p>
+            <p className={styles.location_title}>{selectedPlace?.place}</p>
           </div>
 
           <div className={styles.location_detail_wrap}>
@@ -41,13 +46,13 @@ export default function VisitLocation() {
               <div className={styles.location_address}>
                 <p className={styles.location_detail_category}>location</p>
                 <p className={styles.location_detail_text}>
-                  경기도 용인시 기흥구 동백동 최고 7길 7,<br/>
-                  용인 동백 LoveSilver
+                  {selectedPlace?.locationName[3].text},<br/>
+                  {selectedPlace?.place}
                 </p>
               </div>
               <div className={styles.location_call}>
                 <p className={styles.location_detail_category}>call</p>
-                <p className={styles.location_detail_text}>02-000-0000</p>
+                <p className={styles.location_detail_text}>{selectedPlace?.locationName[4].text}</p>
               </div>
             </div>
             <div className={styles.location_directions}>

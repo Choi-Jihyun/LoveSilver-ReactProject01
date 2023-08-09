@@ -7,6 +7,7 @@ export default function Inquire() {
     <div>
       <BlackMenuBg />
       <ContactUs />
+      <div style={{background: "#AAD27C", width: "100%", height: "30rem"}}></div>
     </div>
   )
 }

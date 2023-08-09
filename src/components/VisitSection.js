@@ -22,16 +22,12 @@ export default function VisitSection() {
   const [isLastSlide, setIsLastSlide] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   
-
-  
   const goPrevSlide = () => {
     if (swiper) {swiper.slidePrev();}
   };
-
   const goNextSlide = () => {
     if (swiper) {swiper.slideNext();}
   };
-
   const handleSlideChange = () => {
     if (swiper) {
       setIsFirstSlide(swiper.isBeginning);
@@ -47,9 +43,6 @@ export default function VisitSection() {
   }, [swiper]);
 
   const [allPlaces] = usePlaces()
-  useEffect(()=>{
-    console.log(allPlaces)
-  },[])
 
   return (
 
@@ -74,16 +67,17 @@ export default function VisitSection() {
               allPlaces.map((item)=>(
                 <div key={item.index}>
 
-                  <p style={{ display: currentSlide + 1 === item.index ? 'block' : 'none' }} className={`${styles.visit_title}`}>{item.place}</p>
+                  <p style={{ display: currentSlide === item.index ? 'block' : 'none' }} className={`${styles.visit_title}`}>{item.place}</p>
 
-                  <p style={{ display: currentSlide + 1 === item.index ? 'block' : 'none' }} className={styles.visit_subtitle}>
+                  <p style={{ display: currentSlide === item.index ? 'block' : 'none' }} className={styles.visit_subtitle}>
                     {item.address}<br/>
                     TEL. {item.call}<br/>
                     FAX.{item.call}<br/>
                     E-mail. lovesilver@naver.com
                   </p>
-                  <p className='green_button'>
-                    <Link to= '/visit'>방문하기</Link>
+                  <p style={{ display: currentSlide === item.index ? 'block' : 'none' }} className='green_button'>
+                    <Link to={`/visit/${item.index}`} onClick={()=>{
+                    }}>방문하기</Link>
                   </p>
                 </div>
               ))

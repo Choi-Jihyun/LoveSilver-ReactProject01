@@ -60,6 +60,10 @@ div.swiper_wrap {
   text-align: center;
   margin-top: 5rem;
 }
+.gallery_img_wrap img {
+  width: 50%;
+  object-fit: cover;
+}
 
 .gallery_detail_title {
   font: bold 2rem "Noto sans KR";

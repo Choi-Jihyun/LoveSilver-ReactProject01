@@ -79,16 +79,28 @@ p.plus_text {
 }
 
 div#scroll_instruction {
+  width: auto;
+  height: auto;
   position: absolute;
   left: 50%;
   transform: translateX(-35%);
   bottom: 10%;
+  border: solid 2px palevioletred;
+}
+
+.scoll_icon_wrap{
+  width: auto;
+  height: auto;
+  position: relative;
+  left: 0;
+  top: 0;
+  border: solid 2px blue;
 }
 
 .angle_down {
   font-size: 1.5rem;
   color: white;
   position: relative;
-  left: -2.5rem;
-  top: 3rem;
+  left: 0.8rem;
+  top: 1rem;
 }

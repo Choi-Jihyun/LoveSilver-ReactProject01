@@ -18,7 +18,7 @@ function App() {
       errorElement: <NotFound/>,
       children: [
         {index: true, element: <Home/>},
-        {path: '/visit', element: <Visit/>},
+        {path: '/visit/:placeId', element: <Visit/>},
         {path: '/curriculum', element: <Curriculum/>},
         {path: '/gallery', element: <Gallery/>},
         {path: '/gallery/:productId', element: <GalleryDetail/>},
