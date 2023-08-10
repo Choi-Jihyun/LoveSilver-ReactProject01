@@ -6,8 +6,35 @@ import gsap from 'gsap';
 
 
 export default function MainVisual() {
+
+  function scrollDownAni() {
+    gsap.to(angleDownWrapRef.current, {top: "1rem", duration: 0.2, delay: 1, onComplete: ()=>{
+      gsap.to(angleDownWrapRef.current, {top: "0.3rem", duration: 0.3, onComplete: ()=>{
+        gsap.to(angleDownWrapRef.current, {top: "1rem", duration: 0.2,onComplete: ()=>{
+          gsap.to(angleDownWrapRef.current, {top: "0.3rem", duration: 0.3})
+        }})
+      }})
+    }})
+  }
   useEffect(()=>{
-    gsap.to(angleDownWrapRef.current, {top: "2rem", duration: 0.3})
+    let intervalAni;
+
+    const handleScroll = () => {
+      if (window.scrollY >= window.innerHeight) {
+        clearInterval(intervalAni); // 스크롤이 100vh를 넘으면 interval 제거
+      }
+    };
+    
+    intervalAni = setInterval(() => {
+      scrollDownAni();
+    }, 2200);
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      clearInterval(intervalAni);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [])
 
   const angleDownWrapRef = useRef()

@@ -172,12 +172,12 @@ div.submenu_list_wrap {
   height: 100%;
   position: relative;
   left: 20px;
-  top: 0;
+  top: -1rem;
 }
 .submenu_explain_el {
   color: #b8b8b8;
   font: normal 1rem "Noto sans KR";
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   position: relative;
   left: 0;
   top: 0;
@@ -189,12 +189,20 @@ div.submenu_list_wrap {
   background: #b8b8b8;
   position: absolute;
   left: 0;
-  bottom: -1rem;
+  bottom: -0.7rem;
+}
+div.places_wrap {
+  width: auto;
+  height: 11rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content:space-around;
 }
 
 .places {
   color: black;
-  font: normal 1rem/2.4rem "Noto sans KR";
+  font: normal 1rem "Noto sans KR";
 }
 
 .with_us_wrap {
@@ -279,8 +287,6 @@ p.visit_button {
 .submenu_img_content:hover .visit_text {
   padding-right: 0.3rem;
 }
-
-
 
 .arrow_right_icon {
   width: 1rem;

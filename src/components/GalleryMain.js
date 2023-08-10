@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styles from './css/gallerymain.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useProducts from '../hooks/useProducts';
+import useMenus from '../hooks/useMenus';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -9,19 +10,14 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Pagination, Navigation } from 'swiper/modules';
 
+
 export default function GalleryMain() {
 
   const [allProducts] = useProducts()
-
-  const places = [
-    {index: 0, text: '모든 지점', fullPlaceName: '모든 지점'},
-    {index: 1, text: '용인 동백', fullPlaceName: '용인 동백 LoveSilver'},
-    {index: 2, text: '사랑 교회', fullPlaceName: '사랑 교회'},
-    {index: 3, text: '성남 판교', fullPlaceName: '성남 판교 LoveSilver'},
-    {index: 4, text: '수원 광교', fullPlaceName: '수원 광교 LoveSilver'}
-  ];
-  const [selectPlace, setSelectPlace] = useState(places[0].fullPlaceName)
-
+  const [allMenus] = useMenus()
+  const galleryMenu = allMenus.find(menu => menu.index === 2);
+  const [selectPlace, setSelectPlace] = useState('모든 지점')
+  const {search} = useLocation()
   const [placeItems, setPlaceItems] = useState([])
 
   useEffect(()=>{
@@ -35,6 +31,17 @@ export default function GalleryMain() {
 
   const navigate = useNavigate()
 
+  useEffect(() => { // 메인에서 선택한 카테고리 보여줌 
+    console.log('search: '+search);
+    if (search) {
+      const getPlace = decodeURIComponent(new URLSearchParams(search).get('place')) // search 전체값을 받아와서 category 속성값만 얻어내는 약속된 객체함수 
+      if (getPlace) {
+        setSelectPlace(getPlace);
+      }
+    }
+  }, [search])
+
+
   return (
     <div id={styles.gallery_section_wrap} className='contents'>
       <section id={styles.gallery_section}>
@@ -46,11 +53,15 @@ export default function GalleryMain() {
         <div className={styles.select_bar}>
           <ul className={styles.select_place_list}>
             {
-              places.map((item)=>(
-                <li key={item.index} className={selectPlace === item.fullPlaceName ? styles.selected : ''} onClick={()=>{
-                  setSelectPlace(item.fullPlaceName)
-                }}>
-                  <Link>{item.text}</Link>
+              galleryMenu?.detailCategory.map((item, detailIndex)=>(
+                <li 
+                  key={detailIndex} 
+                  className={selectPlace === item.place ? styles.selected : ''}
+                  onClick={()=>{
+                    setSelectPlace(item.place)
+                  }}
+                >
+                  <Link>{item.place}</Link>
                 </li>
               ))
             }

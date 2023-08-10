@@ -85,7 +85,6 @@ div#scroll_instruction {
   left: 50%;
   transform: translateX(-35%);
   bottom: 10%;
-  border: solid 2px palevioletred;
 }
 
 .scoll_icon_wrap{
@@ -94,13 +93,12 @@ div#scroll_instruction {
   position: relative;
   left: 0;
   top: 0;
-  border: solid 2px blue;
 }
 
 .angle_down {
   font-size: 1.5rem;
   color: white;
   position: relative;
-  left: 0.8rem;
+  left: 0.95rem;
   top: 1rem;
 }

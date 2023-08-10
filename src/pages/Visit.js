@@ -5,15 +5,13 @@ import VisitLocation from '../components/VisitLocation'
 import ContactUs from '../components/ContactUs'
 import VisitPlaceImages from '../components/VisitPlaceImages'
 import { useLocation } from 'react-router-dom'
-// import usePlaces from '../hooks/usePlaces'
 
 export default function Visit() {
-  // const {placeId} = useParams()
   const {pathname}= useLocation()
 
-  // useEffect(()=>{
-  //   window.scrollTo(0,0);
-  // }, [pathname])
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  }, [pathname])
 
   return (
     <div>
