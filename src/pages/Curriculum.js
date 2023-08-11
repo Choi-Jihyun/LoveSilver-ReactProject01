@@ -7,7 +7,9 @@ export default function Curriculum() {
   return (
     <div>
       <BlackMenuBg/>
-      <CurriculumSection />
+      <div style={{minHeight: '100vh'}}>
+        <CurriculumSection />
+      </div>
     </div>
   )
 }

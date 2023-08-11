@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './css/header.module.css';
-import { Link, createSearchParams, useLocation } from 'react-router-dom';
+import { Link, useNavigate, createSearchParams, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import useMenus from '../hooks/useMenus';
 import { FaLongArrowAltRight } from "react-icons/fa";
@@ -8,13 +8,13 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 export default function Header() {
   
-  
   const [allMenus] = useMenus();
   const [selectMenu, setSelectMenu] = useState('');
   const [hoverMenu, setHoverMenu] = useState('');
   const [isMouseEntered, setIsMouseEntered] = useState(false);
   const [category, setCategory] = useState(null);
   const { search } = useLocation();
+  const navigate = useNavigate();
 
   const headerRef = useRef(null);
   const submenuWrapRef = useRef([]);
@@ -120,13 +120,6 @@ export default function Header() {
                       {
                         item.detailCategory.map((detailItem, index)=>(
                           <div key={item.index}>
-                            {/* <Link
-                              to={item.link !== '/visit' ? item.link : item.link + '/' + index}
-                              onClick={()=>{
-                                setSelectMenu(item.category)
-                                // placeCategory = detailItem.place;
-                              }}
-                            > */}
                             <Link
                               to={
                                 item.link === '/visit'
@@ -138,8 +131,21 @@ export default function Header() {
                                     }
                                   : item.link
                               }
-                              onClick={()=>{
+                              onClick={() => {
                                 setSelectMenu(item.category)
+                                // 같은 기능을 하는 코드, 지워도 됨, 주의: Link 태그로 하면 제대로 작동하지 않는다.
+                                // console.log('detailItem.place: '+detailItem.place);
+                                // if (item.link === '/visit') {
+                                //   navigate(`${item.link}/${index}`);
+                                // } else if (item.link === '/gallery') {
+                                //   navigate({
+                                //     pathname: item.link,
+                                //     search: `?${createSearchParams({ place: `${detailItem.place}` })}`,
+                                //   });
+                                // } else {
+                                //   navigate(item.link);
+                                // }
+
                               }}
                             >
                               <p className={styles.places} key={index}>
