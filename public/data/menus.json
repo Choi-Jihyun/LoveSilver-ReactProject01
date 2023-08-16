@@ -3,6 +3,7 @@
     "index":0, 
     "category": "방문", 
     "link": "/visit", 
+    "mobileLink": "/mobilevisit",
     "explainTitle": "LoveSilver", 
     "detailCategory":[
       {"name": "용인 동백 LoveSilver", "img": "/images/place_image_01.png"},
@@ -15,6 +16,7 @@
     "index":1, 
     "category": "커리큘럼", 
     "link": "/curriculum", 
+    "mobileLink": "/mobilecurriculum",
     "explainTitle": "curriculum", 
     "detailCategory":[
       {"name": "인지 수업", "img": "/images/curri_image_01.png"},
@@ -27,6 +29,7 @@
     "index":2, 
     "category": "갤러리", 
     "link": "/gallery", 
+    "mobileLink": "/mobilegallery",
     "explainTitle": "gallery", 
     "detailCategory":[
       {"name": "전체 둘러보기", "place": "모든 지점", "img": "/images/place_image_02.png"},
@@ -40,6 +43,7 @@
     "index":3, 
     "category": "문의", 
     "link": "/inquire", 
+    "mobileLink": "/mobileinquire",
     "explainTitle": "inquire", 
     "detailCategory":[
       {"name": "입소 문의", "img": "/images/inquire_image_02.png"},

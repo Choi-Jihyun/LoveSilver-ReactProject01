@@ -66,6 +66,25 @@ nav#mainmenu {
   float: left;
 }
 
+.login_button {
+  width: 100px;
+  height: 2rem;
+  position: absolute;
+  right: -9rem;
+  top: 1.6rem;
+  cursor: pointer;
+}
+.login_icon {
+  color: rgb(229, 229, 229);
+}
+#logout {
+  font-size: 1.5rem;
+  padding-top: 2px;
+}
+#login {
+  font-size: 2rem;
+}
+
 ul#mainmenu_list {
   height: 80px;
   display: flex;

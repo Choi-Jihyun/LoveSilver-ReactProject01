@@ -1,0 +1,156 @@
+section#gallery_section {
+  width: 100%;
+  height: auto;
+}
+
+div.title_wrap {
+  padding-top: 7rem;
+  width: 100%;
+  height: 10rem;
+  text-align: center;
+}
+
+.title_wrap p{
+  padding-bottom: 0.7rem;
+}
+
+div.select_bar {
+  width: 100%;
+  max-width: 45rem;
+  height: 2rem;
+  margin: 0 auto;
+}
+
+ul.select_place_list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.select_place_list li {
+  border: solid 1px #AACB73;
+  padding: 0.3rem 1.5rem;
+  border-radius: 1rem;
+}
+
+.select_place_list li.selected {
+  background: rgba(170, 203, 115, 0.47);
+}
+
+div.gallery_main {
+  width: 100%;
+  height: auto;
+}
+
+ul.gallery_list {
+  width: 100%;
+  min-height: 20rem;
+  height: auto;
+  margin-top: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-content: center;
+  gap: 5%;
+  position: relative;
+  left: 0;
+  top: 0;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.gallery_list li {
+  width: 30%;
+  height: 20rem;
+  margin-bottom: 5rem;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+@media screen and (max-width: 768px) {
+  ul.gallery_list {
+    width: 100%;
+
+    position: relative;
+    left: 0;
+    top: 0;
+    padding: 0 5%;
+    box-sizing: border-box;
+  }
+
+  .gallery_list li {
+    width: 47%;
+    height: 15rem;
+    margin-bottom: 10rem;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+}
+
+
+.gallery_li_wrap {
+  width: 100%;
+  height: 20rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.gallery_li_img {
+  width: 100%;
+  height: 15rem;
+  box-sizing: border-box;
+}
+
+.gallery_li_title {
+  width: 100%;
+  font: bold 1.2rem "Noto sans KR";
+  padding-top: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;  
+}
+
+.gallery_li_place {
+  font: normal 1rem "Noto sans KR";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.gallery_li_date {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #777;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  --swiper-theme-color: #fff;
+}
+
+.swiper-button-prev, 
+.swiper-button-next {
+  width: 1rem;
+  height: 1rem;
+  background-size: 50% auto;
+  background-position: center;
+}
+
+.swiper_slide{
+  width: 100%;
+  height: 100%;
+}
+
+.swiper_img {
+  width: 100%;
+  height: 15rem;
+  object-fit:cover;
+}

@@ -3,7 +3,9 @@ import styles from './css/header.module.css';
 import { Link, useNavigate, createSearchParams, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import useMenus from '../hooks/useMenus';
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltRight, FaRegUserCircle } from "react-icons/fa";
+import { login, logout, onUserStateChange } from "../api/firebase";
+import { useAuthContext } from '../context/AuthContext';
 
 
 export default function Header() {
@@ -37,20 +39,20 @@ export default function Header() {
   };
 
   const handleWheel = (event) => {
-      if (event.deltaY > 0) {
-        // 휠 내릴 때
-        gsap.to(headerRef.current, { top: -80, background: 'transparent', duration: 0.3, ease: 'power3.out' });
+    if (event.deltaY > 0) {
+      // 휠 내릴 때
+      gsap.to(headerRef.current, { top: -80, background: 'transparent', duration: 0.3, ease: 'power3.out' });
+      gsap.to('.change_text_color', { color: 'white', duration: 0.3 });
+    } else {
+      // 휠 올릴 때
+      if (window.scrollY <= window.innerHeight * 0.2) {
+        gsap.to(headerRef.current, { top: 0, background: 'transparent', duration: 0.3, ease: 'power3.out' });
         gsap.to('.change_text_color', { color: 'white', duration: 0.3 });
       } else {
-        // 휠 올릴 때
-        if (window.scrollY <= window.innerHeight * 0.2) {
-          gsap.to(headerRef.current, { top: 0, background: 'transparent', duration: 0.3, ease: 'power3.out' });
-          gsap.to('.change_text_color', { color: 'white', duration: 0.3 });
-        } else {
-          gsap.to(headerRef.current, { top: 0, background: 'white', duration: 0.3, ease: 'power3.out' });
-          gsap.to( '.change_text_color', { color: 'black', duration: 0.3 });
-        }
+        gsap.to(headerRef.current, { top: 0, background: 'white', duration: 0.3, ease: 'power3.out' });
+        gsap.to( '.change_text_color', { color: 'black', duration: 0.3 });
       }
+    }
   };
 
   useEffect(() => {
@@ -64,6 +66,7 @@ export default function Header() {
     };
   }, [isMouseEntered]);
 
+  const {user} = useAuthContext()
 
 
   return (
@@ -105,7 +108,18 @@ export default function Header() {
                 }
               </ul>
             </nav>
-  
+            <div className={styles.login_button}>
+
+              {
+                user ? 
+                <>
+                  <p><img src={user.photoURL} style={{float: 'left', width: '2rem', height: '2rem', borderRadius: '50%'}} onClick={logout}/></p>
+                </>
+                : 
+                <FaRegUserCircle  className={styles.login_icon} id={styles.logout} onClick={login}/>
+              }
+              
+            </div>
             {
             allMenus.map((item)=>(
               <div
