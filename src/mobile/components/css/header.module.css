@@ -6,7 +6,6 @@ div.header_wrap{
   left:0px; 
   top:0px;     
   z-index:1;
-  border-bottom: solid 1px rgb(201, 201, 201);
 } 
 div.header_inner {
   width: 90%;
@@ -161,7 +160,7 @@ span.mobile_arrow_icon{
   transition:0.4s ease;
 }
 
-ul#mobilemenu_list>li.selected span{ /* 모바일메뉴 화살표 아이콘 활성화 스타일 지정 (회전) */
+ul#mobilemenu_list>li.selected span{
   -webkit-transform:rotate(0deg); 
   transform:rotate(0deg); 
 }

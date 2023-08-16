@@ -107,67 +107,66 @@ export default function MobileHeader() {
                     allMenus.map((item)=>(
                           
                       item.category === '커리큘럼' || item.category === '문의' ?
-                        
-                          <li
-                            key={item.index}
-                            ref={(el) => (liRefs.current[item.index] = el)}
-                            className={clickIndex === item.index ? styles.selected : ''}
-                            onClick={()=>{
-                              toggleMenu(item.index)
-                            }}
-                            style={
-                              item.index === clickIndex ? {height: closeHeight + 10 + (closeHeight*item.detailCategory.length)} : { height: item.index === clickIndex ? closeHeight : openHeight }
-                            }
+                        <li
+                          key={item.index}
+                          ref={(el) => (liRefs.current[item.index] = el)}
+                          className={clickIndex === item.index ? styles.selected : ''}
+                          onClick={ ()=>{
+                            console.log('item.category: '+item.category);
+                          }}
+                          style={
+                            item.index === clickIndex ? {height: closeHeight + 10 + (closeHeight*item.detailCategory.length)} : { height: item.index === clickIndex ? closeHeight : openHeight }
+                          }
+                        >
+                          <Link
+                            to={item.mobileLink}
+                            className={selectMenu === item.category ? styles.selected : ''}
                           >
-                            <Link
-                              to={item.link}
-                              className={selectMenu === item.category ? styles.selected : ''}
-                            >
-                              <p className={styles.category}>{item.category}</p>
-                            </Link>
+                            <p className={styles.category}>{item.category}</p>
+                          </Link>
                         </li>
                       :
                       <li
-                      key={item.index}
-                      ref={(el) => (liRefs.current[item.index] = el)}
-                      className={clickIndex === item.index ? styles.selected : ''}
-                      onClick={()=>{
-                        toggleMenu(item.index)
-                      }}
-                      style={
-                        item.index === clickIndex ? {height: closeHeight + 10 + (closeHeight*item.detailCategory.length)} : { height: item.index === clickIndex ? closeHeight : openHeight }
-                      }
-                    >
-                          <p className={styles.category} >{item.category}</p>
-                          <span className={styles.mobile_arrow_icon}><FaAngleDown /></span>
-                          <ul className={styles.mobilesubmenu_list}>
-                            {
-                              item.detailCategory.map((detailItem, detailIndex)=>(
-                                <Link
-                                  to={
-                                    item.mobileLink === '/mobilevisit'
-                                      ? item.mobileLink + '/' + detailIndex
-                                      : item.mobileLink === '/mobilegallery'
-                                      ? {
-                                          pathname: item.mobileLink,
-                                          search: `?${createSearchParams({ place: `${detailItem.place}` })}`,
-                                        }
-                                      : item.mobileLink
-                                  }
-                                  onClick={() => {
-                                    setSelectMenu(item.category)
-                                  }}
-                                >
-                                  <li key={detailIndex} className={styles.submenu_li}>
-                                    {detailItem.name}
-                                  </li>
-                                
-                                </Link>
+                        key={item.index}
+                        ref={(el) => (liRefs.current[item.index] = el)}
+                        className={clickIndex === item.index ? styles.selected : ''}
+                        onClick={()=>{
+                          toggleMenu(item.index)
+                        }}
+                        style={
+                          item.index === clickIndex ? {height: closeHeight + 10 + (closeHeight*item.detailCategory.length)} : { height: item.index === clickIndex ? closeHeight : openHeight }
+                        }
+                      >
+                        <p className={styles.category} >{item.category}</p>
+                        <span className={styles.mobile_arrow_icon}><FaAngleDown /></span>
+                        <ul className={styles.mobilesubmenu_list}>
+                          {
+                            item.detailCategory.map((detailItem, detailIndex)=>(
+                              <Link
+                                to={
+                                  item.mobileLink === '/mobilevisit'
+                                    ? item.mobileLink + '/' + detailIndex
+                                    : item.mobileLink === '/mobilegallery'
+                                    ? {
+                                        pathname: item.mobileLink,
+                                        search: `?${createSearchParams({ place: `${detailItem.place}` })}`,
+                                      }
+                                    : item.mobileLink
+                                }
+                                onClick={() => {
+                                  setSelectMenu(item.category)
+                                }}
+                              >
+                                <li key={detailIndex} className={styles.submenu_li}>
+                                  {detailItem.name}
+                                </li>
+                              
+                              </Link>
 
-                              ))
-                            }
-                          </ul>
-                        </li>
+                            ))
+                          }
+                        </ul>
+                      </li>
                           
 
                     ))
