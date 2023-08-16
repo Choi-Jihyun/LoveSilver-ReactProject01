@@ -49,11 +49,10 @@ export default function VisitSection() {
     <div id={styles.visit_section_wrap} className='contents'>
       <section id={styles.visit_section}>
       <h2 className='hidden'>지점 둘러보기</h2>
-        <div id={styles.background}>
-          <div id={styles.bg_left}></div>
-          <div id={styles.bg_right}></div>
-          <div id={styles.bg_png}></div>
-        </div>
+      <div className={styles.title_wrap}>
+        <p className='title'>Visit</p>
+        <p className='subtitle'>전국의 LoveSilver를 둘러보세요!</p>
+      </div>
         <div id={styles.visit_contents_gallery_wrap}>
           <div id={styles.visit_contents}>
             <div className={styles.visit_gallery_controller}>
@@ -87,8 +86,8 @@ export default function VisitSection() {
           <div className={styles.white_gradient_bg}></div>
           <div className={styles.visit_gallery}>
             <Swiper
-              slidesPerView={3}
-              spaceBetween={50}
+              slidesPerView={2}
+              spaceBetween={10}
               centeredSlides={true}
               pagination={{
                 clickable: true,
@@ -104,9 +103,7 @@ export default function VisitSection() {
                   <SwiperSlide><img src={item.img} alt='방문하기'/></SwiperSlide>
                 ))
               }
-
             </Swiper>
-
           </div>
         </div>
       </section>
