@@ -9,7 +9,7 @@ section#gallery_section {
 
 div.text_wrap {
   width: 320px;
-  height: 250px;
+  height: 260px;
   position: relative;
   left: 0%;
   top: 0px;
@@ -33,7 +33,7 @@ div.gallery_wrap {
   height: 370px;
   position: relative;
   left: 0%;
-  top: 40px;
+  top: 50px;
   margin: 0 auto;
 }
 

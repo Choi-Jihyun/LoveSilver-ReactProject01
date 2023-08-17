@@ -16,7 +16,6 @@ export default function MobileHeader() {
   const [clickIndex, setClickIndex] = useState(null)
 
   const headerRef = useRef(null);
-  const submenuWrapRef = useRef([]);
   const liRefs = useRef([]);
 
   const menuIcon = useRef();
@@ -36,6 +35,10 @@ export default function MobileHeader() {
   }, [])
 
   const closeMenu = useCallback(() => {
+    if(clickIndex !== null) {
+      console.log("클릭인덱스가 있습니다.");
+      setClickIndex(null)
+    }
     gsap.set('body, html', {overflowY: 'visible'})
     gsap.to(grayLayer.current, {opacity: 0, duration: 0.4})
     gsap.to(menuWrap.current, {right: '-60vw', duration: 0.4, onComplete: ()=>{
@@ -43,10 +46,7 @@ export default function MobileHeader() {
       menuWrap.current.style.display = 'none';
     }})
 
-    if(clickIndex !== null) {
-      setClickIndex(null)
-    }
-  }, [])
+  }, [clickIndex])
 
   const toggleMenu = (index) => {
     if(clickIndex===index) {
@@ -92,7 +92,16 @@ export default function MobileHeader() {
                     user ? 
                     <div>
                       <p><img src={user.photoURL} style={{width: '30px', height: '30px', borderRadius: '50%'}}/></p>
-                      <p onClick={logout} className={styles.login_text} id={styles.login_out_text}>로그아웃</p>
+                      <p 
+                        onClick={() => {
+                          login();
+                          logout();
+                          closeMenu();
+                        }} 
+                        className={styles.login_text} 
+                        id={styles.login_out_text}>
+                          로그아웃
+                      </p>
                     </div>
                     : 
                     <div onClick={login}>

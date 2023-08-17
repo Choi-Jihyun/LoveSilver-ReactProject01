@@ -6,6 +6,7 @@ div.header_wrap{
   left:0px; 
   top:0px;     
   z-index:1;
+  
 } 
 div.header_inner {
   width: 90%;
@@ -134,8 +135,8 @@ ul#mobilemenu_list{
 ul#mobilemenu_list>li{
   width:100%; 
   height:55px; 
-  font:normal 14px/55px "Noto sans KR";
-  border-bottom:solid 1px #E3E3E3; 
+  font: normal 14px/55px "Noto sans KR";
+  border-bottom: solid 1px #E3E3E3; 
   box-sizing:border-box; 
   text-indent:30px; 
   position:relative; 
@@ -176,12 +177,12 @@ ul.mobilesubmenu_list > a > li {
   height:45px; 
   background:#ffffee; 
   font:normal 13px/43px "Noto sans KR"; 
-  border-bottom:solid 1px #E3E3E3; 
+  border-bottom:solid 1px rgba(227, 227, 227, 0.7); 
   box-sizing:border-box; 
   text-indent:45px; 
 }
-ul.mobilesubmenu_list>li:first-child {
-  border-top:solid 1px #E3E3E3; 
+ul.mobilesubmenu_list > a > li:first-child {
+  border-top:solid 1px rgba(227, 227, 227, 0.7);
   box-sizing: border-box;
 }
 
