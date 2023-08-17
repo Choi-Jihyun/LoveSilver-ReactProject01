@@ -1,0 +1,118 @@
+[
+  {
+      "index": 0, 
+      "place": "용인 동백 LoveSilver",
+      "locationName": [
+        {"guide":"SubTitle", "text": "용인"},
+        {"guide":"Title1", "text": "Yong-in"},
+        {"guide":"Title2", "text": "Dongbaeg"},
+        {"guide":"address", "text": "경기도 용인시 기흥구 동백동 최고 7길 7"},
+        {"guide":"call", "text": "02-000-0000"}
+      ],
+      "address": "용인시 동백로 7길 용인 동백 LoveSilver", 
+      "call": "010-000-0000",
+      "img": "/images/visit01.png",
+      "visualImg": "/images/visit_visual00.png",
+      "introImg": [
+        {"path": "/images/visit_introduce_img00_0.jpg"},
+        {"path": "/images/visit_introduce_img00_1.jpg"}
+      ],
+      "placeImg": [
+        {"index": 0, "category": "입구", "path": "/images/0_place_entrance.png"},
+        {"index": 1, "category": "프로그램실", "path": "/images/0_place_program.jpg"},
+        {"index": 2, "category": "수면실", "path": "/images/0_place_sleep.jpg"},
+        {"index": 3, "category": "재활치료실", "path": "/images/0_place_cure.jpg"},
+        {"index": 4, "category": "세면대", "path": "/images/0_place_bath.jpg"},
+        {"index": 5, "category": "물리치료실", "path": "/images/0_place_cure.jpg"},
+        {"index": 6, "category": "상담실", "path": "/images/0_place_counsel.jpg"},
+        {"index": 7, "category": "화장실", "path": "/images/0_place_bath.jpg"}
+      ] 
+    },
+    {
+      "index": 1, 
+      "place": "사랑 교회 LoveSilver", 
+      "locationName": [
+        {"guide":"SubTitle", "text": "사랑 교회"},
+        {"guide":"Title1", "text": "Love"},
+        {"guide":"Title2", "text": "Church"},
+        {"guide":"address", "text": "서울특별시 서초구 사랑로 7길 7"},
+        {"guide":"call", "text": "02-111-1111"}
+      ],
+      "address": "서울특별시 서초구 사랑로 7길 사랑 교회", 
+      "call": "010-111-0000", 
+      "img": "/images/visit02.png",
+      "visualImg": "/images/visit_visual01.png",
+      "introImg": [
+        {"path": "/images/visit_introduce_img01_0.png"},
+        {"path": "/images/visit_introduce_img01_1.png"}
+      ],
+      "placeImg": [
+        {"index": 0, "category": "입구", "path": "/images/1_place_entrance.png"},
+        {"index": 1, "category": "프로그램실", "path": "/images/1_place_program.png"},
+        {"index": 2, "category": "수면실", "path": "/images/1_place_sleep.png"},
+        {"index": 3, "category": "재활치료실", "path": "/images/1_place_cure.png"},
+        {"index": 4, "category": "세면대", "path": "/images/1_place_sink.png"},
+        {"index": 5, "category": "물리치료실", "path": "/images/1_place_cure2.png"},
+        {"index": 6, "category": "상담실", "path": "/images/1_place_counsel.png"},
+        {"index": 7, "category": "화장실", "path": "/images/1_place_bath.png"}
+      ] 
+    },
+    {
+      "index": 2, 
+      "place": "성남 판교 LoveSilver", 
+      "locationName": [
+        {"guide":"SubTitle", "text": "사랑 교회"},
+        {"guide":"Title1", "text": "Love"},
+        {"guide":"Title2", "text": "Church"},
+        {"guide":"address", "text": "경기도 성남시 판교 7길 7"},
+        {"guide":"call", "text": "02-222-2222"}
+      ],
+      "address": "경기도 성남시 판교 7길 성남 판교 LoveSilver", 
+      "call": "010-222-0000", 
+      "img": "/images/visit03.png",
+      "visualImg": "/images/visit_visual02.png",
+      "introImg": [
+        {"path": "/images/visit_introduce_img02_0.png"},
+        {"path": "/images/visit_introduce_img02_1.png"}
+      ],
+      "placeImg": [
+        {"index": 0, "category": "입구", "path": "/images/2_place_entrance.png"},
+        {"index": 1, "category": "프로그램실", "path": "/images/2_place_program.png"},
+        {"index": 2, "category": "수면실", "path": "/images/2_place_sleep.png"},
+        {"index": 3, "category": "재활치료실", "path": "/images/2_place_cure.png"},
+        {"index": 4, "category": "세면대", "path": "/images/2_place_sink.png"},
+        {"index": 5, "category": "물리치료실", "path": "/images/2_place_cure2.png"},
+        {"index": 6, "category": "상담실", "path": "/images/2_place_counsel.png"},
+        {"index": 7, "category": "화장실", "path": "/images/2_place_bath.png"}
+      ] 
+    },
+    {
+      "index": 3, 
+      "place": "수원 광교 LoveSilver", 
+      "locationName": [
+        {"guide":"SubTitle", "text": "사랑 교회"},
+        {"guide":"Title1", "text": "Love"},
+        {"guide":"Title2", "text": "Church"},
+        {"guide":"address", "text": "경기도 수원시 광교 7길 7"},
+        {"guide":"call", "text": "02-333-3333"}
+      ],
+      "address": "경기도 수원시 광교 7길 수원 광교 LoveSilver", 
+      "call": "010-333-0000", 
+      "img": "/images/visit01.png",
+      "visualImg": "/images/visit_visual03.png",
+      "introImg": [
+        {"path": "/images/visit_introduce_img03_0.png"},
+        {"path": "/images/visit_introduce_img03_1.png"}
+      ],
+      "placeImg": [
+        {"index": 0, "category": "입구", "path": "/images/3_place_entrance.png"},
+        {"index": 1, "category": "프로그램실", "path": "/images/3_place_program.png"},
+        {"index": 2, "category": "수면실", "path": "/images/3_place_sleep.png"},
+        {"index": 3, "category": "재활치료실", "path": "/images/3_place_cure.png"},
+        {"index": 4, "category": "세면대", "path": "/images/3_place_sink.png"},
+        {"index": 5, "category": "물리치료실", "path": "/images/3_place_cure2.png"},
+        {"index": 6, "category": "상담실", "path": "/images/3_place_counsel.png"},
+        {"index": 7, "category": "화장실", "path": "/images/3_place_bath.png"}
+      ] 
+    }
+]
