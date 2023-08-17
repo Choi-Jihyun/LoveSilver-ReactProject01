@@ -9,10 +9,10 @@ export default function MobileGallery() {
   useEffect(()=>{
     window.scrollTo(0,0);
   }, [pathname])
+  
   return (
     <div>
       <MobileGalleryMain />
-
     </div>
   )
 }

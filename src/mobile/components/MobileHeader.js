@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, createSearchParams } from 'react-router-dom'
 import styles from './css/header.module.css'
 import useMenus from '../../hooks/useMenus'
@@ -36,7 +36,6 @@ export default function MobileHeader() {
 
   const closeMenu = useCallback(() => {
     if(clickIndex !== null) {
-      console.log("클릭인덱스가 있습니다.");
       setClickIndex(null)
     }
     gsap.set('body, html', {overflowY: 'visible'})
@@ -45,17 +44,21 @@ export default function MobileHeader() {
       grayLayer.current.style.display = 'none';
       menuWrap.current.style.display = 'none';
     }})
-
   }, [clickIndex])
 
   const toggleMenu = (index) => {
-    if(clickIndex===index) {
+    if(clickIndex === index) {
       setClickIndex(null)
-      // return;
     } else {
       setClickIndex(index)
     }
   }
+
+  // useEffect(()=>{
+  //   if(selectMenu) {
+  //     closeMenu();
+  //   }
+  // }, [selectMenu])
 
   return (
     <div 
@@ -120,9 +123,7 @@ export default function MobileHeader() {
                           key={item.index}
                           ref={(el) => (liRefs.current[item.index] = el)}
                           className={clickIndex === item.index ? styles.selected : ''}
-                          onClick={ ()=>{
-                            console.log('item.category: '+item.category);
-                          }}
+                          onClick={closeMenu}
                           style={
                             item.index === clickIndex ? {height: closeHeight + 10 + (closeHeight*item.detailCategory.length)} : { height: item.index === clickIndex ? closeHeight : openHeight }
                           }
@@ -163,7 +164,8 @@ export default function MobileHeader() {
                                     : item.mobileLink
                                 }
                                 onClick={() => {
-                                  setSelectMenu(item.category)
+                                  setSelectMenu(item.category);
+                                  closeMenu();
                                 }}
                               >
                                 <li key={detailIndex} className={styles.submenu_li}>

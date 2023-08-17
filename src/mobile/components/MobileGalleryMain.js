@@ -74,10 +74,9 @@ export default function GalleryMain() {
             {
               placeItems.map((item)=>(
                 <li key={item.id} onClick={()=>{
-                  navigate(`/gallery/${item.id}`)
+                  navigate(`/mobilegallery/${item.id}`)
                 }}>
                   <div className={styles.gallery_li_wrap}>
-                    {/* <div className={styles.gallery_li_img}>{item.image}<img src='' alt=''></img></div> */}
                     <div className={styles.gallery_li_img}>
                       <Swiper className={styles.swiper} spaceBetween={0} loop={true} slidesPerView={1} pagination={true} modules={[Pagination, Navigation]}>
                         {item.images.map((image, index) => (
