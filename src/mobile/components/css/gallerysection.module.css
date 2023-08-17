@@ -5,8 +5,6 @@ section#gallery_section {
   left: 0px;
   top: 0px;
   margin-top: 200px;
-  border: solid 3px blue;
-  box-sizing: border-box;
 }
 
 div.text_wrap {
@@ -16,8 +14,6 @@ div.text_wrap {
   left: 0%;
   top: 0px;
   margin: 0 auto;
-
-  border: solid 2px palevioletred;
 }
 
 .text_wrap p {
@@ -39,8 +35,6 @@ div.gallery_wrap {
   left: 0%;
   top: 40px;
   margin: 0 auto;
-  border: solid 2px palevioletred;
-  box-sizing: border-box;
 }
 
 

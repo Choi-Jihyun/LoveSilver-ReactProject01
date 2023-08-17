@@ -4,15 +4,13 @@ section#review_section {
   position: relative;
   left: 0px;
   top: 0px;
-  border: solid 2px palevioletred;
-  box-sizing: border-box;
   margin-top: 200px;
 }
 
 div.title_wrap {
   width: 320px;
   height: 130px;
-  border: solid 2px palevioletred;
+
   text-align: center;
   position: relative;
   left: 50%;
@@ -28,9 +26,6 @@ div.review_wrap {
   top: 0;
   margin: 0 auto;
   margin-top: 70px;
-  box-sizing: border-box;
-  border: solid 2px palevioletred;
-  box-sizing: border-box;
 }
 
 ul.review_list {

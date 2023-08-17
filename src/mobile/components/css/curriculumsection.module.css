@@ -5,8 +5,6 @@ section#curriculum_section {
   left: 0px;
   top: 0px;
   margin-top: 4rem;
-  border: solid 2px blue;
-  box-sizing: border-box;
 }
 
 .title_wrap {
@@ -33,8 +31,6 @@ ul.curriculums_list {
   align-content: center;
   gap: 10px;
   padding: 0rem 5%;
-  box-sizing: border-box;
-  border: solid 2px palevioletred;
   box-sizing: border-box;
 }
 
