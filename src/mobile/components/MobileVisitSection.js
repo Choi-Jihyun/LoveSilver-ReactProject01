@@ -75,7 +75,7 @@ export default function VisitSection() {
                     E-mail. lovesilver@naver.com
                   </p>
                   <p style={{ display: currentSlide === item.index ? 'block' : 'none' }} className='green_button'>
-                    <Link to={`/visit/${item.index}`} onClick={()=>{
+                    <Link to={`/mobilevisit/${item.index}`} onClick={()=>{
                     }}>방문하기</Link>
                   </p>
                 </div>

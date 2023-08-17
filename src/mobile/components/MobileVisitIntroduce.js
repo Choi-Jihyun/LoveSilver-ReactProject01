@@ -29,7 +29,7 @@ export default function VisitIntroduce() {
               {selectedPlace.place} 주야간 보호 센터에서는 언제나 어르신들을 따뜻한 마음으로 환영합니다. 저희와 함께 즐거운 시간과 행복한 일상을 만들어가시길 바랍니다. 문의 사항이 있으시면 언제든지 연락 주시기 바랍니다. <br/>감사합니다.
             </p>
             <p className={`green_button ${styles.green_button}`}>
-              <Link to='/visit'>자세히 보기</Link>
+              <Link to='/mobilevisit/0'>자세히 보기</Link>
             </p>
           </div>
           <div className={styles.visit_introduce_img1} style={{backgroundImage: `url('${selectedPlace?.introImg[0].path}')`}}></div>
