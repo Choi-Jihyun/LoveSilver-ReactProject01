@@ -1,6 +1,6 @@
 section#curriculum_section {
   width: 100%;
-  height: 700px;
+  height: 600px;
   position: relative;
   left: 0px;
   top: 0px;
@@ -8,7 +8,7 @@ section#curriculum_section {
 
 .title_wrap {
   width: 100%;
-  height: 200px;
+  height: 150px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -18,7 +18,7 @@ section#curriculum_section {
 
 ul.curriculums_list {
   width: 100%;
-  height: 500px;
+  height: 450px;
 
   position: relative;
   left: 0px;

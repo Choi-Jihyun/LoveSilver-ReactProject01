@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import styles from './css/visitplaceimages.module.css'
 import usePlaces from '../../hooks/usePlaces'
 import { useParams } from 'react-router-dom';
+import gsap from 'gsap';
 
 
 export default function VisitPlaceImages() {
@@ -39,6 +40,18 @@ export default function VisitPlaceImages() {
     stickyRef.current.scrollBy(0, newPosition);
     console.log('sectionRef: '+sectionRef.current.scrollTop);
   };
+
+  // sticky_wrap 요소에 ScrollTrigger를 적용합니다.
+  gsap.to(stickyRef.current, {
+    scrollTrigger: {
+      trigger: stickyRef.current,
+      start: "top 60px",  // 시작 위치 (화면 상단에서 60px 아래에서 시작)
+      end: () => `+=${stickyRef.current.offsetHeight - 700 + 60}`,  // 끝 위치 (요소 높이 - 화면 높이 + 시작 위치)
+      scrub: true,  // 스크롤에 따라 부드럽게 움직임
+      pin: true,    // 요소를 고정시킴 (position: sticky와 같은 효과)
+      anticipatePin: 1  // 핀이 적용될 위치를 미리 예측하여 부드러운 움직임을 보장
+    }
+  });
 
 
   return (
