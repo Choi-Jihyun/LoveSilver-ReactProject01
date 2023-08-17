@@ -6,11 +6,12 @@ section#visit_place_images{
   top: 0;
 }
 div.sticky_wrap {
-  width: 100%;
-  height: 55rem;
+  width: 90%;
+  height: 700px;
+  margin: 0 auto;
   position: sticky;
   left: 0;
-  top: 5vh;
+  top: 60px;
 }
 div.title_wrap {
   width: 100%;
@@ -18,8 +19,7 @@ div.title_wrap {
   position: relative;
   left: 0;
   top: 0;
-  margin-bottom: 3rem;
-  margin-top: 4rem;
+  margin-bottom: 20px;
 }
 .title_wrap > p{
   padding-bottom: 1rem;
@@ -27,15 +27,12 @@ div.title_wrap {
 
 div.img_nav_wrap {
   width: 100%;
-  height: 40rem;
+  height: 550px;
 }
 
-
 div.img_wrap {
-  width: 50%;
-  height: 40rem;
-  box-sizing: border-box;
-  float: left;
+  width: 100%;
+  height: 230px;
   position: relative;
   left: 0;
   top: 0;
@@ -58,16 +55,17 @@ div.img_wrap img.selected {
 
 
 div.nav_wrap {
-  width: 50%;
-  height: 40rem;
-  box-sizing: border-box;
-  float: left;
-  padding-left: 9rem;
-  padding-top: 3rem;
+  width: 100%;
+  height: 200px;
+  margin-top: 10px;
 }
 
 div.nav_wrap p {
-  font: normal 2.5rem/4.2rem "Noto sans KR";
+  width: 50%;
+  height: 50px;
+  float: left;
+  font: normal 18px/45px "Noto sans KR";
+  text-align: center;
   color: gray;
   position: relative;
   left: 0;
@@ -75,15 +73,7 @@ div.nav_wrap p {
   transition: all 0.2s ease-out;
   cursor: pointer;
 }
-div.nav_wrap p.selected::before {
-  content:"";
-  width: 3.5rem;
-  height: 2px;
-  background: black;
-  position: absolute;
-  left: -5.5rem;
-  top: 2rem;
-}
+
 div.nav_wrap p.selected {
   color: black;
 }

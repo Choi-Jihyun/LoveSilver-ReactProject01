@@ -17,7 +17,7 @@ export default function VisitLocation() {
         <h2 className='hidden'>{selectedPlace?.place} 위치</h2>
         <div className={styles.title_wrap}>
           <p className='subtitle'>아름다운 {selectedPlace?.locationName[0].text}</p>
-          <p className='title'>Located In {selectedPlace?.locationName[1].text}<br/> {selectedPlace?.locationName[2].text}</p>
+          <p className='title' style={{fontSize: '38px'}}>Located In {selectedPlace?.locationName[1].text}<br/> {selectedPlace?.locationName[2].text}</p>
         </div>
         <div className={styles.map_api}>
           <Map 

@@ -6,7 +6,6 @@ import usePlaces from '../../hooks/usePlaces'
 export default function VisitVisual() {
   const {placeId} = useParams()
   const [allPlaces] = usePlaces()
-
   const selectedPlace = allPlaces.find(place => place.index === parseInt(placeId));
   const [selectVisit, setSelectVisit]= useState({})
   useEffect(()=>{
@@ -26,7 +25,7 @@ export default function VisitVisual() {
       <section id={styles.visit_visual}>
         <h2 className='hidden'>방문페이지비주얼</h2>
         <div className={styles.visual_wrap}>
-          <div className={styles.img} style={{backgroundImage: `url('/images/visit_visual0${selectedPlace?.index}.png')`}}></div>
+          <div className={styles.img} style={{backgroundImage: `url('/images/m_visit_visual0${selectedPlace?.index}.png')`}}></div>
 
           <div className={styles.visual_contents}>
             <div className={styles.texts}>
