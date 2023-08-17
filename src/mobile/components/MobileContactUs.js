@@ -12,26 +12,6 @@ export default function ContactUs() {
             <p className='title'>Contact us</p>
             <p className='subtitle'>상담 문의</p>
           </div>
-          <div className={styles.company_info_wrap}>
-            <div class={styles.call_num_wrap}>
-              <FaPhoneAlt className={styles.icon_phone}/>
-              <p className={styles.call}>02-000-0000</p>
-            </div>
-            <p className={styles.infos}>
-              대표이사: 고하은<br/>
-              사업자 등록번호: 161-59-3030<br/>
-              경기도 성남시 분당구 판교 최고 7길 7<br/>
-              (주) LoveSilver<br/>
-              Fax. 02-000-0000<br/>
-              E-mail. lovesilver@naver.com
-            </p>
-            <ul className={styles.sns_list}>
-              <li><FaInstagram/></li>
-              <li><FaFacebookF/></li>
-              <li><FaBimobject/></li>
-              <li><FaLinkedinIn/></li>
-            </ul>
-          </div>
           <div className={styles.contact_form_wrap}>
             <form className={styles.contact_form}>
               <fieldset>
