@@ -10,6 +10,7 @@ div.sticky_wrap {
   height: 700px;
   margin: 0 auto;
   position: sticky;
+  position: -webkit-sticky;
   left: 0;
   top: 60px;
 }
