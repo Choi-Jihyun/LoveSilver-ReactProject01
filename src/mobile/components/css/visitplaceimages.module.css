@@ -1,16 +1,15 @@
 section#visit_place_images{
   width: 100%;
-  height: 3000px;
+  height: 750px;
   position: relative;
   left: 0;
   top: 0;
 }
 div.sticky_wrap {
   width: 90%;
-  height: 700px;
+  height: 750px;
   margin: 0 auto;
-  position: sticky;
-  position: -webkit-sticky;
+  position: relative;
   left: 0;
   top: 60px;
 }
