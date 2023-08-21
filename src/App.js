@@ -128,8 +128,6 @@ function App() {
   },
 ];
 
-
-  // createBrowserRouter 사용하여 라우트 처리
   const router = createBrowserRouter(routes);
 
   return (

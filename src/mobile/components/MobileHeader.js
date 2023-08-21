@@ -32,12 +32,14 @@ export default function MobileHeader() {
     gsap.to(grayLayer.current, {opacity: 0.8, duration: 0.4})
     menuWrap.current.style.display = 'block';
     gsap.to(menuWrap.current, {right: 0, duration: 0.4})
+    gsap.to(closeBtn.current, {delay: 0.3, opacity: 1, left: '-40px', duration: 0.2})
   }, [])
 
   const closeMenu = useCallback(() => {
     if(clickIndex !== null) {
       setClickIndex(null)
     }
+    gsap.to(closeBtn.current, {opacity: 0, left: '0px', duration: 0.1})
     gsap.set('body, html', {overflowY: 'visible'})
     gsap.to(grayLayer.current, {opacity: 0, duration: 0.4})
     gsap.to(menuWrap.current, {right: '-60vw', duration: 0.4, onComplete: ()=>{
@@ -54,11 +56,6 @@ export default function MobileHeader() {
     }
   }
 
-  // useEffect(()=>{
-  //   if(selectMenu) {
-  //     closeMenu();
-  //   }
-  // }, [selectMenu])
 
   return (
     <div 
