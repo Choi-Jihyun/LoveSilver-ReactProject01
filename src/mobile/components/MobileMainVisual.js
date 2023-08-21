@@ -7,8 +7,10 @@ import gsap from 'gsap';
 
 export default function MobileMainVisual() {
   const angleDownWrapRef = useRef()
+  const visualSubtitleRef = useRef()
 
   useEffect(()=>{
+    gsap.to(visualSubtitleRef.current, {delay: 2, opacity: 1, duration: 1})
     let intervalAni;
     const handleScroll = () => {
       if (window.scrollY >= window.innerHeight) {
@@ -48,7 +50,7 @@ export default function MobileMainVisual() {
           <div id={styles.visual_contents}>
             <div id={styles.texts}>
               <p id={styles.title}>LoveSilver<br/>care center</p>
-              <p id={styles.subtitle}>사랑실버 주간센터에 오신 것을 환영합니다.</p>
+              <p id={styles.subtitle} ref={visualSubtitleRef}>사랑실버 주간센터에 오신 것을 환영합니다.</p>
             </div>
             <div id={styles.visit_button}>
               <Link to='/mobilevisit/0'>
