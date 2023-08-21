@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './css/gallerysection.module.css'
+import useProducts from '../hooks/useProducts'
+
 
 export default function GallerySection() {
+
+  const [allProducts] = useProducts()
+  const [galleryItems, setGalleryItems] = useState([]);
+  const displayGalleryItems = allProducts.filter((item) => item.id > 1 && item.id < 6 );
+
+  useEffect(() => {
+    setGalleryItems(displayGalleryItems);
+  }, [allProducts, galleryItems]);
+
   return (
     <div id={styles.gallery_section_wrap} className='contents'>
       <section id={styles.gallery_section}>
@@ -16,10 +27,15 @@ export default function GallerySection() {
         </div>
         <div className={styles.gallery_wrap}>
           <ul className={styles.gallery_list}>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+          {
+            galleryItems.map((item) => (
+              <li>
+                <Link to='/mobilegallery'>
+                  <img src={item.images[0]} style={{width: "100%", height: '100%', objectPosition: "center", objectFit: "cover"}}/>
+                </Link>
+              </li>
+            ))
+          }
           </ul>
         </div>
       </section>
