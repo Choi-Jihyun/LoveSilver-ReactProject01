@@ -7,7 +7,7 @@ export default function ReviewSection() {
       <section id={styles.review_section}>
       <h2 className='hidden'>후기</h2>
         <div className={styles.title_wrap}>
-          <p className='title'>What our member say</p>
+          <p className='title'>What our members say</p>
           <p className='subtitle'>loveSilver를 경험한 회원님들의 생생한 후기</p>
         </div>
         <div className={styles.review_wrap}>
