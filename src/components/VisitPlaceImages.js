@@ -37,7 +37,6 @@ export default function VisitPlaceImages() {
     setSelectedIndex(index);
     const newPosition = index * 270;
     stickyRef.current.scrollBy(0, newPosition);
-    console.log('sectionRef: '+sectionRef.current.scrollTop);
   };
 
 

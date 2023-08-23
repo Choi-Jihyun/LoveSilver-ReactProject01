@@ -17,6 +17,7 @@ export default function Header() {
   const [category, setCategory] = useState(null);
   const { search } = useLocation();
   const navigate = useNavigate();
+  const {user} = useAuthContext()
 
   const headerRef = useRef(null);
   const submenuWrapRef = useRef([]);
@@ -66,7 +67,6 @@ export default function Header() {
     };
   }, [isMouseEntered]);
 
-  const {user} = useAuthContext()
 
 
   return (
@@ -159,7 +159,6 @@ export default function Header() {
                                 // } else {
                                 //   navigate(item.link);
                                 // }
-
                               }}
                             >
                               <p className={styles.places} key={index}>

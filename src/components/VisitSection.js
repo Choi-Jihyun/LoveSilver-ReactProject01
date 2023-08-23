@@ -63,12 +63,9 @@ export default function VisitSection() {
             </div>
 
             { 
-            
               allPlaces.map((item)=>(
                 <div key={item.index}>
-
                   <p style={{ display: currentSlide === item.index ? 'block' : 'none' }} className={`${styles.visit_title}`}>{item.place}</p>
-
                   <p style={{ display: currentSlide === item.index ? 'block' : 'none' }} className={styles.visit_subtitle}>
                     {item.address}<br/>
                     TEL. {item.call}<br/>

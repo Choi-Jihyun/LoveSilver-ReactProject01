@@ -3,13 +3,13 @@ import styles from './css/gallerymain.module.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useProducts from '../hooks/useProducts';
 import useMenus from '../hooks/useMenus';
+import { useAuthContext } from '../context/AuthContext';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Pagination, Navigation } from 'swiper/modules';
-
 
 export default function GalleryMain() {
 
@@ -19,6 +19,8 @@ export default function GalleryMain() {
   const [selectPlace, setSelectPlace] = useState('모든 지점')
   const {search} = useLocation()
   const [placeItems, setPlaceItems] = useState([])
+  const navigate = useNavigate()
+  const {user} = useAuthContext()
 
   useEffect(()=>{
     if(selectPlace === '모든 지점') {
@@ -29,10 +31,7 @@ export default function GalleryMain() {
     }
   }, [selectPlace, allProducts])
 
-  const navigate = useNavigate()
-
   useEffect(() => { // 메인에서 선택한 카테고리 보여줌 
-    console.log('search: '+search);
     if (search) {
       const getPlace = decodeURIComponent(new URLSearchParams(search).get('place')) // search 전체값을 받아와서 category 속성값만 얻어내는 약속된 객체함수 
       if (getPlace) {
@@ -40,6 +39,8 @@ export default function GalleryMain() {
       }
     }
   }, [search])
+
+
 
 
   return (
@@ -65,10 +66,18 @@ export default function GalleryMain() {
                 </li>
               ))
             }
-
           </ul>
         </div>
+
         <div className={styles.gallery_main}>
+          {
+            user ?
+            <div className={styles.add_btn}>
+              <p>활동 추가하기</p>
+            </div>
+            :
+            ''
+          }
           <ul className={styles.gallery_list}>
 
             {

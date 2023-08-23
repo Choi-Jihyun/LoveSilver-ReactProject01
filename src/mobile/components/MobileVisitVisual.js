@@ -32,11 +32,6 @@ export default function VisitVisual() {
               <p className={styles.subtitle}>visit us</p>
               {/* <p className={styles.title}>용인 동백<br/>LoveSilver{placeId}</p> */}
               <p className={styles.title}>{selectedPlace?.place}</p>
-              {
-                ()=>{
-                    console.log('selectVisit중간: '+selectVisit);
-                }
-              }
             </div>
           </div>
 

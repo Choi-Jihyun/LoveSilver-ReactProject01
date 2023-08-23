@@ -32,7 +32,6 @@ export default function GalleryMain() {
   const navigate = useNavigate()
 
   useEffect(() => { // 메인에서 선택한 카테고리 보여줌 
-    console.log('search: '+search);
     if (search) {
       const getPlace = decodeURIComponent(new URLSearchParams(search).get('place')) // search 전체값을 받아와서 category 속성값만 얻어내는 약속된 객체함수 
       if (getPlace) {
