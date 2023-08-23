@@ -50,7 +50,7 @@ export default function MainVisual() {
               <p id={styles.subtitle}>사랑실버 주간센터에 오신 것을 환영합니다.</p>
             </div>
             <div id={styles.visit_button}>
-              <Link to='/visit'>
+              <Link to='/visit/0'>
                 <p className={styles.plus_text}>visit</p>
                 <TfiAngleRight className={styles.angle_right}/>
               </Link>
