@@ -13,7 +13,15 @@ export default function GalleryAddDetailInner() {
   const [allMenus] = useMenus();
   const galleryMenu = allMenus.find(menu => menu.index === 2);
   const [images, setImages] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().substr(0, 10));
+  // const [selectedDate, setSelectedDate] = useState(new Date().toISOString().substr(0, 10));
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+  const day = String(currentDate.getDate()).padStart(2, '0');
+  const initialSelectedDate = `${year}.${month}.${day}`;
+
+  const [selectedDate, setSelectedDate] = useState(initialSelectedDate);
+
   
   const handleImageUpload = (event) => {
     const files = event.target.files;
@@ -62,6 +70,7 @@ export default function GalleryAddDetailInner() {
       await set(ref(database, `products/0${productCount + 1}`), {
         place: selectedLocation,
         images: imagesArray,
+        id: `0${productCount + 1}`,
         title: title,
         date: selectedDate,
         body_text: bodyText
