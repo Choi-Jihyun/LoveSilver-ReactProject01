@@ -133,7 +133,7 @@ export default function Header() {
                     <div className={styles.places_wrap}>
                       {
                         item.detailCategory.map((detailItem, index)=>(
-                          <div key={item.index}>
+                          <div key={index}>
                             <Link
                               to={
                                 item.link === '/visit'
@@ -179,7 +179,7 @@ export default function Header() {
                 <div className={styles.submenu_img_wrap}>
                   {
                     item.detailCategory.slice(0, 2).map((detailItem, detailIndex)=>(
-                      <div className={styles.submenu_img_content} key={item.index}>
+                      <div className={styles.submenu_img_content} key={detailIndex}>
                         <Link 
                           to={
                             item.link === '/visit' ? item.link + '/' + detailIndex
@@ -195,14 +195,14 @@ export default function Header() {
                           }}
                         >
                           <img src={detailItem.img} alt='이미지' />
-                          <div class={styles.place_text_wrap}>
+                          <div className={styles.place_text_wrap}>
                             <p className={styles.place_name}>{detailItem.name}</p>
-                            <p className={styles.visit_button}>
+                            <div className={styles.visit_button}>
                               <p className={styles.visit_text}>
                                   {item.explainTitle}
                               </p>
                               <FaLongArrowAltRight className={styles.arrow_right_icon}/>
-                            </p>
+                            </div>
                           </div>
                         </Link>
                       </div>

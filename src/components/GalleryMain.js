@@ -98,7 +98,7 @@ export default function GalleryMain() {
                   <div className={styles.gallery_li_img}>
                     <img className={styles.swiper_img} src='/images/gallery_add.png' alt='갤러리 추가하기'/>
                   </div>
-                  <div className={styles.gallery_li_title}>(관리자 모드) 갤러리 추가하기</div>
+                  <div className={styles.gallery_li_title} id={styles.admin_title}>(관리자 모드) 갤러리 추가하기</div>
                   <div className={styles.gallery_li_place}></div>
                   <div className={styles.gallery_li_date}></div>
                 </div>
@@ -113,8 +113,8 @@ export default function GalleryMain() {
                     {/* <div className={styles.gallery_li_img}>{item.image}<img src='' alt=''></img></div> */}
                     <div className={styles.gallery_li_img}>
                       <Swiper className={styles.swiper} spaceBetween={0} loop={true} slidesPerView={1} pagination={true} modules={[Pagination, Navigation]}>
-                        {item.images.map((image, index) => (
-                          <SwiperSlide className={styles.swiper_slide} key={index}>
+                        {item.images.map((image, imgIndex) => (
+                          <SwiperSlide className={styles.swiper_slide} key={imgIndex}>
                             <img className={styles.swiper_img} src={image} alt='스와이퍼 이미지'/>
                           </SwiperSlide>
                         ))}

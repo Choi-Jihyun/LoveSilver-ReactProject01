@@ -7,17 +7,7 @@ const AuthContext = createContext();
 export function AuthContextProvider({ children }) {
 
   const [user, setUser] = useState(); // 사용자 로그인 상태관리 
-  // const [isAdmin, setIsAdmin] = useState(false);
 
-  // 사용자 정보 및 관리자 여부 조회
-  // async function fetchUserData() {
-  //   const currentUser = user;
-  //   if (currentUser) {
-  //     const result = await adminUser(currentUser);
-  //     setUser(result);
-  //     setIsAdmin(result.isAdmin);
-  //   }
-  // }
   
   useEffect(() => { // firebase.js 파일 내에서 로그인/로그아웃 상태 관리 함수 실행 
     onUserStateChange((user) => setUser(user));

@@ -47,8 +47,8 @@ export default function App_test() {
         } */}
         
         {
-          mainMenuList.map((item) => (
-            <li ref={ (el) => { mainMenu.current[item.index]=el} }>{item.text}</li>
+          mainMenuList.map((item, index) => (
+            <li key={index} ref={ (el) => { mainMenu.current[item.index]=el} }>{item.text}</li>
           ))
         }
 

@@ -30,7 +30,7 @@ export default function VisitLocation() {
             <CustomOverlayMap position={{ lat: 33.55635, lng: 126.795841 }}>
               <div className='overlay'>{selectedPlace?.place}</div>
             </CustomOverlayMap>
-            <div class={styles.map_buttons}>
+            <div className={styles.map_buttons}>
               <button onClick={() => setLevel(level + 1)} className={styles.minus_button}>-</button>
               <button onClick={() => setLevel(level - 1)} className={styles.plus_button}>+</button>
             </div>

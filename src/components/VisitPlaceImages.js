@@ -57,7 +57,7 @@ export default function VisitPlaceImages() {
                     <img
                       src={detailItem.path} alt={detailItem.category}
                       className={`${detailItem.index === selectedIndex && styles.selected}`}
-                      
+                      key={detailItem.index}
                     />
                   ))
                 // ))

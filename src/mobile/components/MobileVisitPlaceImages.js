@@ -54,9 +54,10 @@ export default function VisitPlaceImages() {
               {
                 // allPlaces.slice(1,2).map((item)=>(
                   selectedPlace?.placeImg.map((detailItem)=>(
-                    <img
+                    <img 
                       src={detailItem.path} alt={detailItem.category}
                       className={`${detailItem.index === selectedIndex && styles.selected}`}
+                      key={detailItem.index}
                     />
                   ))
                 // ))

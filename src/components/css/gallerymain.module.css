@@ -65,6 +65,11 @@ div.add_btn {
   cursor: pointer;
 }
 
+div#admin_title {
+  color: rgb(0, 0, 255);
+}
+
+
 ul.gallery_list {
   width: 100%;
   min-height: 20rem;

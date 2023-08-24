@@ -13,7 +13,7 @@ export default function ContactUs() {
             <p className='subtitle'>상담 문의</p>
           </div>
           <div className={styles.company_info_wrap}>
-            <div class={styles.call_num_wrap}>
+            <div className={styles.call_num_wrap}>
               <FaPhoneAlt className={styles.icon_phone}/>
               <p className={styles.call}>02-000-0000</p>
             </div>

@@ -4,8 +4,8 @@
 }
 
 section#gallery_add_detail_section {
-  width: 70%;
-  height: 1000px;
+  width: 100%;
+  min-height: 900px;
   margin: 0 auto;
   position: relative;
   left: 00;
@@ -21,11 +21,17 @@ section#gallery_add_detail_section {
 /* form 요소 전체 스타일 */
 .form {
   max-width: 600px;
+  height: auto;
+  position: relative;
+  left: 0;
+  top: 0;
   margin: 0 auto;
   margin-top: 10px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  border: solid 2px #aeaeae;
+  box-sizing: border-box;
 }
 
 /* label 스타일 */
@@ -33,20 +39,45 @@ section#gallery_add_detail_section {
   font: bold 1.3rem/2rem "Noto sans KR";
   display: block;
   margin-bottom: 5px;
+  width: 200px;
+}
+
+/* Flex 스타일 */
+.line_wrap{
+  width: 100%;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.placewrap {
+  width: 40%;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.datewrap {
+  width: 50%;
+  position: absolute;
+  right: 3%;
+  top: 0;
 }
 
 /* select 태그 스타일 */
 .select {
   font: bold 0.9rem "Noto sans KR";
-  width: 30%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background: white;
 }
+
+
 
 /* input, textarea 스타일 */
 .input,
+.date,
 .textarea {
   width: 95%;
   padding: 10px;
@@ -56,6 +87,21 @@ section#gallery_add_detail_section {
 }
 
 /* 이미지 업로드 input 스타일 */
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.previewImage {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 .fileInput {
   width: 95%;
   padding: 10px;
@@ -63,9 +109,13 @@ section#gallery_add_detail_section {
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
+  background: white;
 }
 
 /* 버튼 스타일 */
+.button {
+  width: 100%;
+}
 .button {
   background-color: #007bff;
   color: #fff;
@@ -74,6 +124,7 @@ section#gallery_add_detail_section {
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.1s ease-out;
+
 }
 
 .button:hover {

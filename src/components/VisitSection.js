@@ -97,8 +97,8 @@ export default function VisitSection() {
               onSlideChange={handleSlideChange}
             >
               {
-                allPlaces.map((item)=>(
-                  <SwiperSlide><img src={item.img} alt='방문하기'/></SwiperSlide>
+                allPlaces.map((item, index)=>(
+                  <SwiperSlide key={index}><img src={item.img} alt='방문하기'/></SwiperSlide>
                 ))
               }
 

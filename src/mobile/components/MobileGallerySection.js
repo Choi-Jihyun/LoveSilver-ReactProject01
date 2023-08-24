@@ -29,8 +29,8 @@ export default function GallerySection() {
         <div className={styles.gallery_wrap}>
           <ul className={styles.gallery_list}>
           {
-            galleryItems.map((item) => (
-              <li>
+            galleryItems.map((item, index) => (
+              <li key={index}>
                 <Link to='/mobilegallery'>
                   <img src={item.images[0]} style={{width: "100%", height: '100%', objectPosition: "center", objectFit: "cover"}}/>
                 </Link>
