@@ -1,0 +1,81 @@
+#gallery_add_detail_section_wrap {
+  width: 100%;
+  height: auto;
+}
+
+section#gallery_add_detail_section {
+  width: 70%;
+  height: 1000px;
+  margin: 0 auto;
+  position: relative;
+  left: 00;
+  top: 0;
+}
+
+.whomade {
+  height: 40px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+/* form 요소 전체 스타일 */
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* label 스타일 */
+.form label {
+  font: bold 1.3rem/2rem "Noto sans KR";
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* select 태그 스타일 */
+.select {
+  font: bold 0.9rem "Noto sans KR";
+  width: 30%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* input, textarea 스타일 */
+.input,
+.textarea {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* 이미지 업로드 input 스타일 */
+.fileInput {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 버튼 스타일 */
+.button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}

@@ -12,7 +12,7 @@ import { getDatabase, ref, set, get, remove, query, orderByKey, equalTo } from '
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  
+
   apiKey: "AIzaSyDwfOPRzHBkYUIFX_EijBdUWsD5hAvClME",
   authDomain: "lovesilver-abf37.firebaseapp.com",
   databaseURL: "https://lovesilver-abf37-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -46,23 +46,21 @@ export function onUserStateChange(callback) { // 로그인 로그아웃 상태�
   });
 }
 
-async function adminUser(user) { // 관리자여부조회 함수 
+export async function adminUser(user) { // 관리자여부조회 함수 
   return get(ref(database, 'admins')) 
     .then((snapshot) => {
       if (snapshot.exists()) {
         const admins = snapshot.val();
         const isAdmin = admins.includes(user.uid);
+        // const isAdmin = Object.values(admins).includes(user.uid);
+        // const isAdmin = Object.values(admins).some(uid => uid === user.uid);
+        // console.log('isAdmin: '+ isAdmin);
+        // console.log('admins: '+admins);
         return { ...user, isAdmin };
       }
       return user;
     });
 }
-
-
-// 상품관리 실시간 데이터 베이스
-
-
-
 
 export async function getProducts() { // 데이터 베이스에 등록된 상품 로드 하는 함수 
   return get(ref(database, 'products')).then((snapshot) => {
@@ -72,6 +70,8 @@ export async function getProducts() { // 데이터 베이스에 등록된 상품
     return [];
   });
 }
+
+
 
 export async function getProductDetail(productId) { // 특정 id 와 같은 상품 찾아주는 함수 ( 상품상세페이지 )
   return get(

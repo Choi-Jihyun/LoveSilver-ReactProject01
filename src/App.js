@@ -18,6 +18,7 @@ import MobileGalleryDetail from './mobile/pages/MobileGalleryDetail.js'
 import MobileInquire from './mobile/pages/MobileInquire';
 import { useEffect, useState } from 'react';
 import { AuthContextProvider } from './context/AuthContext';
+import GalleryAddDetail from './pages/GalleryAddDetail';
 
 
 // function App() {
@@ -119,6 +120,10 @@ function App() {
       { 
         path: isMobile || windowInnerWidth < 768 ? '/mobilegallery/:productId' : '/gallery/:productId', 
         element: isMobile || windowInnerWidth < 768 ? <MobileGalleryDetail /> : <GalleryDetail /> 
+      },
+      {
+        path: '/gallery/add_detail',
+        element: <GalleryAddDetail /> 
       },
       { 
         path: isMobile || windowInnerWidth < 768 ? '/mobileinquire' : '/inquire', 

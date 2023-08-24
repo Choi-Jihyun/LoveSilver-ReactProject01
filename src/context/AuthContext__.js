@@ -7,15 +7,24 @@ const AuthContext = createContext();
 export function AuthContextProvider({ children }) {
 
   const [user, setUser] = useState(); // 사용자 로그인 상태관리 
-  // const [loading, setLoading] = useState(true);
+  // const [isAdmin, setIsAdmin] = useState(false);
 
-  useEffect(() => { // firebase.js 파일내에서 로그인/로그아웃 상태 관리 함수 실행 
-    onUserStateChange((user) => (setUser(user)))
-  }, []);
-
-  // if (loading) {
-  //   return <p>Loading...</p>; // 로딩 중일 때 로딩 메시지를 보여줌
+  // 사용자 정보 및 관리자 여부 조회
+  // async function fetchUserData() {
+  //   const currentUser = user;
+  //   if (currentUser) {
+  //     const result = await adminUser(currentUser);
+  //     setUser(result);
+  //     setIsAdmin(result.isAdmin);
+  //   }
   // }
+  
+  useEffect(() => { // firebase.js 파일 내에서 로그인/로그아웃 상태 관리 함수 실행 
+    onUserStateChange((user) => setUser(user));
+    // fetchUserData(() => setIsAdmin());
+    console.log('user',user)
+  }, []);
+  
 
   return (
     <AuthContext.Provider  // 로그인/로그아웃 환경을 제공하는 Provider 설정 
