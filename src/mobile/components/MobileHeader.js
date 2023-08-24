@@ -164,6 +164,7 @@ export default function MobileHeader() {
                                   setSelectMenu(item.category);
                                   closeMenu();
                                 }}
+                                key={detailIndex}
                               >
                                 <li key={detailIndex} className={styles.submenu_li}>
                                   {detailItem.name}

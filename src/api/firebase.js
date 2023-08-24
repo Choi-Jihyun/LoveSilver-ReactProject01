@@ -71,20 +71,19 @@ export async function getProductDetail(productId) { // 특정 id 와 같은 상�
 }
 
 // 추가하기
-
 export {
-  app,
-  auth,
-  provider,
+  // app,
+  // auth,
+  // provider,
   database,
-  signInWithPopup,
-  signOut,
-  onAuthStateChanged,
-  get,
-  ref,
-  set,
-  remove,
-  query,
-  orderByKey,
-  equalTo
+  // signInWithPopup,
+  // signOut,
+  // onAuthStateChanged,
+  // get,
+  // ref,
+  // set,
+  // remove,
+  // query,
+  // orderByKey,
+  // equalTo
 };

@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react'
 import styles from './css/galleryadddetailinner.module.css'
 import useMenus from '../hooks/useMenus';
 import { useAuthContext } from '../context/AuthContext';
-import { database } from '../api/firebase'; 
 import { useLocation } from 'react-router-dom';
+import { ref, set, get } from 'firebase/database';
+import { database } from '../api/firebase';
 
 
 export default function GalleryAddDetailInner() {
   const {pathname}= useLocation()
-
-  
   const {user} = useAuthContext();
   const [allMenus] = useMenus();
   const galleryMenu = allMenus.find(menu => menu.index === 2);
@@ -44,15 +43,23 @@ export default function GalleryAddDetailInner() {
     }
 
     try {
-      // Get a reference to the 'products' node
-      const productsRef = database.ref('products');
+      const productsRef = ref(database, 'products');
+      const snapshot = await get(productsRef);
+      // const productCount = snapshot.numChildren();
+      let productCount = 0;
+      snapshot.forEach(() => {
+        productCount++;
+      });
   
-      // Get the count of existing products
-      const snapshot = await productsRef.once('value');
-      const productCount = snapshot.numChildren();
-  
-      // Add a new product with the calculated ID
-      await productsRef.child((productCount + 1).toString()).set({
+      // await productsRef.child((productCount + 1).toString()).set({
+      //   place: selectedLocation,
+      //   images: imagesArray,
+      //   title: title,
+      //   date: selectedDate,
+      //   body_text: bodyText
+      // });
+
+      await set(ref(database, `products/0${productCount + 1}`), {
         place: selectedLocation,
         images: imagesArray,
         title: title,
