@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './css/galleryadddetailinner.module.css'
 import useMenus from '../hooks/useMenus';
 import { useAuthContext } from '../context/AuthContext';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ref, set, get } from 'firebase/database';
 import { database } from '../api/firebase';
 
@@ -13,15 +13,14 @@ export default function GalleryAddDetailInner() {
   const [allMenus] = useMenus();
   const galleryMenu = allMenus.find(menu => menu.index === 2);
   const [images, setImages] = useState([]);
-  // const [selectedDate, setSelectedDate] = useState(new Date().toISOString().substr(0, 10));
-  const currentDate = new Date();
-  const year = currentDate.getFullYear();
-  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-  const day = String(currentDate.getDate()).padStart(2, '0');
-  const initialSelectedDate = `${year}.${month}.${day}`;
-
-  const [selectedDate, setSelectedDate] = useState(initialSelectedDate);
-
+  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().substr(0, 10));
+  // const currentDate = new Date();
+  // const year = String(currentDate.getFullYear());
+  // const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+  // const day = String(currentDate.getDate()).padStart(2, '0');
+  // const initialSelectedDate = `${year}.${month}.${day}`;
+  // const [selectedDate, setSelectedDate] = useState(initialSelectedDate);
+  const navigate = useNavigate()
   
   const handleImageUpload = (event) => {
     const files = event.target.files;
@@ -48,24 +47,24 @@ export default function GalleryAddDetailInner() {
     if (selectedLocation === "장소 선택") {
       alert("장소를 선택해주세요.");
       return;
+    } else if (!title) {
+      alert("제목을 입력하세요.")
+      return;
+    } else if (!bodyText) {
+      alert("내용을 입력하세요.")
+      return;
+    } else if (imagesArray.length == 0) {
+      alert("이미지를 한 개 이상 첨부하세요.")
+      return;
     }
+    
 
     try {
-      const productsRef = ref(database, 'products');
-      const snapshot = await get(productsRef);
-      // const productCount = snapshot.numChildren();
+      const snapshot = await get(ref(database, 'products'));
       let productCount = 0;
       snapshot.forEach(() => {
         productCount++;
       });
-  
-      // await productsRef.child((productCount + 1).toString()).set({
-      //   place: selectedLocation,
-      //   images: imagesArray,
-      //   title: title,
-      //   date: selectedDate,
-      //   body_text: bodyText
-      // });
 
       await set(ref(database, `products/0${productCount + 1}`), {
         place: selectedLocation,
@@ -77,6 +76,7 @@ export default function GalleryAddDetailInner() {
       });
   
       alert('게시되었습니다.');
+      navigate('/gallery')
     } catch (error) {
       console.error(error);
       alert('게시 중 오류가 발생했습니다.');
