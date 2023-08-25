@@ -15,7 +15,9 @@ section#gallery_add_detail_section {
 .whomade {
   height: 40px;
   padding-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
+  font: normal 1rem "Noto sans KR";
 }
 
 /* form 요소 전체 스타일 */
@@ -30,8 +32,6 @@ section#gallery_add_detail_section {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  border: solid 2px #aeaeae;
-  box-sizing: border-box;
 }
 
 /* label 스타일 */
