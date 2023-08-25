@@ -5,6 +5,9 @@ import { useAuthContext } from '../context/AuthContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ref, set, get } from 'firebase/database';
 import { database } from '../api/firebase';
+// import { handleImageUpload } from '../api/firebase_storage';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { v4 as uuid } from 'uuid';
 
 
 export default function GalleryAddDetailInner() {
@@ -22,15 +25,32 @@ export default function GalleryAddDetailInner() {
   // const [selectedDate, setSelectedDate] = useState(initialSelectedDate);
   const navigate = useNavigate()
   
-  const handleImageUpload = (event) => {
+  // const handleImageUpload = (event) => {
+  //   const files = event.target.files;
+  //   const imageArray = [];
+
+  //   for (const file of files) {
+  //     imageArray.push(URL.createObjectURL(file));
+  //   }
+  //   setImages(imageArray);
+  // };
+  const storage = getStorage();
+
+  const handleImageUpload = async (event) => {
     const files = event.target.files;
-    const imageArray = [];
+    const imageUrls = [];
 
     for (const file of files) {
-      imageArray.push(URL.createObjectURL(file));
+      const imageName = `${uuid()}_${file.name}`;
+      const imageRef = storageRef(storage, `images/${imageName}`);
+      await uploadBytes(imageRef, file);
+      const imageUrl = await getDownloadURL(imageRef);
+      console.log('imageUrl: '+imageUrl);
+      imageUrls.push(imageUrl);
     }
-    setImages(imageArray);
-  };
+
+  setImages(imageUrls);
+};
 
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
@@ -38,7 +58,6 @@ export default function GalleryAddDetailInner() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const selectedLocation = event.target.location.value;
     const title = event.target.title.value;
     const bodyText = event.target.content.value;
@@ -57,7 +76,6 @@ export default function GalleryAddDetailInner() {
       alert("이미지를 한 개 이상 첨부하세요.")
       return;
     }
-    
 
     try {
       const snapshot = await get(ref(database, 'products'));
@@ -66,8 +84,10 @@ export default function GalleryAddDetailInner() {
         productCount++;
       });
 
+
       await set(ref(database, `products/0${productCount + 1}`), {
         place: selectedLocation,
+        // images: imagesArray,
         images: imagesArray,
         id: `0${productCount + 1}`,
         title: title,
@@ -75,12 +95,13 @@ export default function GalleryAddDetailInner() {
         body_text: bodyText
       });
   
-      alert('게시되었습니다.');
+      alert('성공적으로 게시되었습니다.');
       navigate('/gallery')
     } catch (error) {
       console.error(error);
       alert('게시 중 오류가 발생했습니다.');
     }
+
   };
 
   useEffect(()=>{
@@ -144,7 +165,6 @@ export default function GalleryAddDetailInner() {
               <img key={index} src={image} alt={`Preview ${index}`} className={styles.previewImage} />
             ))}
           </div>
-          
 
           <div className={styles.button_wrap}><button type="submit" className={styles.button}>게시</button></div>
         </form>
