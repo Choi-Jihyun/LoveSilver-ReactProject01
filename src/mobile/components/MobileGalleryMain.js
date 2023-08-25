@@ -9,6 +9,8 @@ import 'swiper/css';
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Pagination, Navigation } from 'swiper/modules';
+import { useAuthContext } from '../../context/AuthContext';
+import { FaPen, FaTrash } from "react-icons/fa";
 
 
 export default function GalleryMain() {
@@ -19,6 +21,9 @@ export default function GalleryMain() {
   const [selectPlace, setSelectPlace] = useState('모든 지점')
   const {search} = useLocation()
   const [placeItems, setPlaceItems] = useState([])
+  const {user} = useAuthContext()
+  const [addGalleryMode, setAddGalleryMode] = useState(true);
+
 
   useEffect(()=>{
     if(selectPlace === '모든 지점') {
@@ -68,8 +73,47 @@ export default function GalleryMain() {
           </ul>
         </div>
         <div className={styles.gallery_main}>
+        {
+            user && user.isAdmin && 
+            <div className={styles.add_btn}>
+              <p 
+                style={{display: addGalleryMode === false? 'block': 'none'}}
+                onClick={()=>{setAddGalleryMode(true)}}
+              >
+                관리자 모드
+              </p>
+              <p 
+                style={{display: addGalleryMode === true? 'block': 'none'}} 
+                onClick={()=>{setAddGalleryMode(false)}}
+              >
+                관리자 모드 해제
+              </p>
+            </div>
+          }
           <ul className={styles.gallery_list}>
-
+            {
+              user && user.isAdmin && 
+              <li 
+                onClick={()=>{navigate(`/gallery/add_detail`) }}
+                style={{display: addGalleryMode === true? 'block': 'none'}} 
+              >
+                {
+                  user && user.isAdmin && 
+                  <div className={styles.edit_btn}>
+                    <FaPen className={styles.edit_icon} id={styles.pen}/>
+                    <FaTrash className={styles.edit_icon} id={styles.trash}/>
+                  </div>
+                }
+                <div className={styles.gallery_li_wrap}>
+                  <div className={styles.gallery_li_img}>
+                    <img className={styles.swiper_img} src='/images/gallery_add.png' alt='갤러리 추가하기'/>
+                  </div>
+                  <div className={styles.gallery_li_title} id={styles.admin_title}>(관리자 모드)<br/>갤러리 추가하기</div>
+                  <div className={styles.gallery_li_place}></div>
+                  <div className={styles.gallery_li_date}></div>
+                </div>
+              </li>
+            }
             {
               placeItems.map((item)=>(
                 <li key={item.id} onClick={()=>{

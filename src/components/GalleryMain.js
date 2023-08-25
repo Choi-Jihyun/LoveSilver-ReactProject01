@@ -10,6 +10,7 @@ import 'swiper/css';
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Pagination, Navigation } from 'swiper/modules';
+import { FaPen, FaTrash } from "react-icons/fa";
 
 export default function GalleryMain() {
 
@@ -94,6 +95,13 @@ export default function GalleryMain() {
                 onClick={()=>{navigate(`/gallery/add_detail`) }}
                 style={{display: addGalleryMode === true? 'block': 'none'}} 
               >
+                {
+                  user && user.isAdmin && 
+                  <div className={styles.edit_btn}>
+                    <FaPen className={styles.edit_icon} id={styles.pen}/>
+                    <FaTrash className={styles.edit_icon} id={styles.trash}/>
+                  </div>
+                }
                 <div className={styles.gallery_li_wrap}>
                   <div className={styles.gallery_li_img}>
                     <img className={styles.swiper_img} src='/images/gallery_add.png' alt='갤러리 추가하기'/>
@@ -125,7 +133,7 @@ export default function GalleryMain() {
                     <div className={styles.gallery_li_date}>{item.date}</div>
                   </div>
                 </li>
-              ))
+              )).reverse()
             }
           </ul>
         </div>
