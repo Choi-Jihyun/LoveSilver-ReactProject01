@@ -44,6 +44,7 @@ div.gallery_main {
   height: auto;
 }
 
+/* 관리자용 css */
 div.add_btn {
   width: 100%;
   height: 1.6rem;
@@ -67,6 +68,52 @@ div.add_btn {
 
 div#admin_title {
   color: rgb(0, 0, 255);
+}
+
+.edit_btn_wrapper {
+  width: 70px;
+  height: 30px;
+  background: rgba(173, 173, 173, 0.6);
+  border-radius: 10px;
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  z-index: 10;
+  
+}
+
+.edit_btn {
+  width: 100%;
+  height: 30px;
+  position: relative;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.edit_icon {
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+#pen {
+  position: relative;
+  z-index: 99;
+}
+#delete {
+  position: relative;
+  z-index: 99;
+}
+
+div.gallery_li_wrap {
+  position: relative;
+  left: 0;
+  top: 0;
 }
 
 

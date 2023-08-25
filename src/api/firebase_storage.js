@@ -78,18 +78,29 @@ export async function getProductDetail(productId) {
 export {database}
 
 
-// 이미지 업로드 함수
-export async function handleImageUpload(event) {
-  const files = event.target.files;
-  const imageUrls = [];
+// 이미지 업로드 함수, 이거 다른  파일에서 쓰게 하는 거 실패함.
+// export async function handleImageUpload(event) {
+//   const files = event.target.files;
+//   const imageUrls = [];
 
-  for (const file of files) {
-    const imageName = `${uuid()}_${file.name}`;
-    const imageRef = storageRef(storage, `images/${imageName}`);
-    await uploadBytes(imageRef, file);
-    const imageUrl = await getDownloadURL(imageRef);
-    imageUrls.push(imageUrl);
+//   for (const file of files) {
+//     const imageName = `${uuid()}_${file.name}`;
+//     const imageRef = storageRef(storage, `images/${imageName}`);
+//     await uploadBytes(imageRef, file);
+//     const imageUrl = await getDownloadURL(imageRef);
+//     imageUrls.push(imageUrl);
+//   }
+//   setImages(imageUrls);
+//   return imageUrls;
+// }
+
+// 삭제 기능 함수
+export async function handleDeleteItem(itemId) {
+  const itemRef = ref(database, `products/${itemId}`);
+  try {
+    await remove(itemRef);
+    console.log('Item deleted successfully');
+  } catch (error) {
+    console.error('Error deleting item:', error);
   }
-  // setImages(imageUrls);
-  return imageUrls;
 }

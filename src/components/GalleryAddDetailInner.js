@@ -10,6 +10,7 @@ import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'fire
 import { v4 as uuid } from 'uuid';
 
 
+
 export default function GalleryAddDetailInner() {
   const {pathname}= useLocation()
   const {user} = useAuthContext();
@@ -73,7 +74,7 @@ export default function GalleryAddDetailInner() {
       alert("내용을 입력하세요.")
       return;
     } else if (imagesArray.length == 0) {
-      alert("이미지를 한 개 이상 첨부하세요.")
+      alert("이미지를 한 개 이상 첨부하세요. 이미지를 첨부하셨다면 이미지가 업로드가 완료될 때까지 기다려주세요.")
       return;
     }
 

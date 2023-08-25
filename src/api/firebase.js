@@ -72,3 +72,14 @@ export async function getProductDetail(productId) { // 특정 id 와 같은 상�
 
 // 추가하기
 export {database}
+
+// 삭제 기능 함수
+export async function handleDeleteItem(itemId) {
+  const itemRef = ref(database, `products/${itemId}`);
+  try {
+    await remove(itemRef);
+    console.log('Item deleted successfully');
+  } catch (error) {
+    console.error('Error deleting item:', error);
+  }
+}

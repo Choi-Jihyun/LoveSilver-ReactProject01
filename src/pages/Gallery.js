@@ -14,7 +14,6 @@ export default function Gallery() {
   return (
     <div>
       <BlackMenuBg/>
-      {/* <GalleryVisual /> */}
       <div style={{minHeight: '100vh'}}>
         <GalleryMain />
       </div>

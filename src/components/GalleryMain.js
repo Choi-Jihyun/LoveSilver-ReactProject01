@@ -11,6 +11,8 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Pagination, Navigation } from 'swiper/modules';
 import { FaPen, FaTrash } from "react-icons/fa";
+import { handleDeleteItem } from '../api/firebase';
+
 
 export default function GalleryMain() {
 
@@ -23,6 +25,15 @@ export default function GalleryMain() {
   const navigate = useNavigate();
   const {user} = useAuthContext();
   const [addGalleryMode, setAddGalleryMode] = useState(true);
+  const deleteItem = (itemid) => {
+    let r = window.confirm("정말 삭제하시겠습니까?");
+    if (r == true) {
+      handleDeleteItem(itemid)
+      alert("삭제되었습니다.");
+    } else {
+      alert("삭제가 취소되었습니다.");
+    }
+  }
 
   useEffect(()=>{
     if(selectPlace === '모든 지점') {
@@ -41,6 +52,7 @@ export default function GalleryMain() {
       }
     }
   }, [search])
+  
 
 
   return (
@@ -95,13 +107,6 @@ export default function GalleryMain() {
                 onClick={()=>{navigate(`/gallery/add_detail`) }}
                 style={{display: addGalleryMode === true? 'block': 'none'}} 
               >
-                {
-                  user && user.isAdmin && 
-                  <div className={styles.edit_btn}>
-                    <FaPen className={styles.edit_icon} id={styles.pen}/>
-                    <FaTrash className={styles.edit_icon} id={styles.trash}/>
-                  </div>
-                }
                 <div className={styles.gallery_li_wrap}>
                   <div className={styles.gallery_li_img}>
                     <img className={styles.swiper_img} src='/images/gallery_add.png' alt='갤러리 추가하기'/>
@@ -117,8 +122,25 @@ export default function GalleryMain() {
                 <li key={item.id} onClick={()=>{
                   navigate(`/gallery/${item.id}`)
                 }}>
+                  
                   <div className={styles.gallery_li_wrap}>
-                    {/* <div className={styles.gallery_li_img}>{item.image}<img src='' alt=''></img></div> */}
+                    {
+                      user && user.isAdmin && 
+                      <div className={styles.edit_btn_wrapper} style={{display: addGalleryMode === true? 'block': 'none'}} >
+                        <div className={styles.edit_btn}>
+                          <FaPen className={styles.edit_icon} id={styles.pen} />
+                          <div onClick={
+                            (e) => {
+                              e.preventDefault()
+                              handleDeleteItem(item.id)
+                              alert("삭제되었습니다.");
+                            }
+                          }>
+                            <FaTrash className={styles.edit_icon} id={styles.trash} />
+                          </div>
+                        </div>
+                      </div>
+                    }
                     <div className={styles.gallery_li_img}>
                       <Swiper className={styles.swiper} spaceBetween={0} loop={true} slidesPerView={1} pagination={true} modules={[Pagination, Navigation]}>
                         {item.images.map((image, imgIndex) => (
