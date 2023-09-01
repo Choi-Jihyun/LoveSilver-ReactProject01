@@ -25,15 +25,8 @@ export default function GalleryMain() {
   const navigate = useNavigate();
   const {user} = useAuthContext();
   const [addGalleryMode, setAddGalleryMode] = useState(true);
-  const deleteItem = (itemid) => {
-    let r = window.confirm("정말 삭제하시겠습니까?");
-    if (r == true) {
-      handleDeleteItem(itemid)
-      alert("삭제되었습니다.");
-    } else {
-      alert("삭제가 취소되었습니다.");
-    }
-  }
+
+  
 
   useEffect(()=>{
     if(selectPlace === '모든 지점') {
@@ -52,7 +45,27 @@ export default function GalleryMain() {
       }
     }
   }, [search])
+
+  const confirmEditItem = (item) => {
+    let r = window.confirm("해당 게시물을 수정하시겠습니까?");
+    if (r === true) {
+      navigate(`/gallery/add_detail`, { state: { item } });
+    } else {
+      alert("수정이 취소되었습니다.");
+    }
+  }
   
+  
+  const confirmDeleteItem = async(itemid) => {
+    let r = window.confirm("정말 삭제하시겠습니까?");
+    if (r === true) {
+      await handleDeleteItem(itemid)
+      alert("삭제되었습니다.");
+      navigate(`/gallery`);
+    } else {
+      alert("삭제가 취소되었습니다.");
+    }
+  }
 
 
   return (
@@ -82,7 +95,6 @@ export default function GalleryMain() {
         </div>
 
         <div className={styles.gallery_main}>
-
           {
             user && user.isAdmin && 
             <div className={styles.add_btn}>
@@ -128,26 +140,30 @@ export default function GalleryMain() {
                       user && user.isAdmin && 
                       <div className={styles.edit_btn_wrapper} style={{display: addGalleryMode === true? 'block': 'none'}} >
                         <div className={styles.edit_btn}>
-                          <FaPen className={styles.edit_icon} id={styles.pen} />
-                          <div onClick={
-                            (e) => {
-                              e.preventDefault()
-                              handleDeleteItem(item.id)
-                              alert("삭제되었습니다.");
-                            }
-                          }>
-                            <FaTrash className={styles.edit_icon} id={styles.trash} />
-                          </div>
+                          <FaPen className={styles.edit_icon} id={styles.pen}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              confirmEditItem(item);
+                            }}
+                          />
+                          <FaTrash className={styles.edit_icon} id={styles.trash} 
+                            onClick={(e) => {
+                                e.preventDefault();
+                                confirmDeleteItem(item.id);
+                            }}
+                          />
                         </div>
                       </div>
                     }
                     <div className={styles.gallery_li_img}>
                       <Swiper className={styles.swiper} spaceBetween={0} loop={true} slidesPerView={1} pagination={true} modules={[Pagination, Navigation]}>
-                        {item.images.map((image, imgIndex) => (
-                          <SwiperSlide className={styles.swiper_slide} key={imgIndex}>
-                            <img className={styles.swiper_img} src={image} alt='스와이퍼 이미지'/>
-                          </SwiperSlide>
-                        ))}
+                        {
+                          item.images.map((image, imgIndex) => (
+                            <SwiperSlide className={styles.swiper_slide} key={imgIndex}>
+                              <img className={styles.swiper_img} src={image} alt='스와이퍼 이미지'/>
+                            </SwiperSlide>
+                          ))
+                        }
                       </Swiper>
                     </div>
                     <div className={styles.gallery_li_title}>{item.title}</div>

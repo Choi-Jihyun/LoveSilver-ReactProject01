@@ -15,7 +15,7 @@ export default function GalleryAddDetailInner() {
   const {pathname}= useLocation()
   const {user} = useAuthContext();
   const [allMenus] = useMenus();
-  const galleryMenu = allMenus.find(menu => menu.index === 2);
+  // const galleryMenu = allMenus.find(menu => menu.index === 2);
   const [images, setImages] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().substr(0, 10));
   // const currentDate = new Date();
@@ -36,8 +36,11 @@ export default function GalleryAddDetailInner() {
   //   setImages(imageArray);
   // };
   const storage = getStorage();
-
+  // 수정할 때 해당 item의 값들을 불러오겠다.
+  // const item = pathname.state.item;
+  const [uploading, setUploading] = useState(false);
   const handleImageUpload = async (event) => {
+    setUploading(true)
     const files = event.target.files;
     const imageUrls = [];
 
@@ -50,8 +53,9 @@ export default function GalleryAddDetailInner() {
       imageUrls.push(imageUrl);
     }
 
-  setImages(imageUrls);
-};
+    setImages(imageUrls);
+    setUploading(false);
+  };
 
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
@@ -73,7 +77,7 @@ export default function GalleryAddDetailInner() {
     } else if (!bodyText) {
       alert("내용을 입력하세요.")
       return;
-    } else if (imagesArray.length == 0) {
+    } else if (imagesArray.length === 0) {
       alert("이미지를 한 개 이상 첨부하세요. 이미지를 첨부하셨다면 이미지가 업로드가 완료될 때까지 기다려주세요.")
       return;
     }
@@ -84,7 +88,6 @@ export default function GalleryAddDetailInner() {
       snapshot.forEach(() => {
         productCount++;
       });
-
 
       await set(ref(database, `products/0${productCount + 1}`), {
         place: selectedLocation,
@@ -153,7 +156,7 @@ export default function GalleryAddDetailInner() {
           </div>
 
           <label htmlFor="title">제목</label>
-          <input type="text" id="title" name="title" className={styles.input} />
+          <input type="text" id="title" name="title" className={styles.input} defaultValue="테스트 중(수정 가능?)"/>
 
           <label htmlFor="content">내용</label>
           <textarea id="content" name="content" className={styles.textarea}></textarea>

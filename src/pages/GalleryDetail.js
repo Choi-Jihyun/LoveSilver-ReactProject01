@@ -50,21 +50,25 @@ export default function GalleryDetail() {
             <div className={styles.gallery_body_text}>{productItem.body_text}</div>
             <div className={styles.swiper_wrap}>
               <Swiper className={styles.swiper} spaceBetween={0} loop={true} slidesPerView={1} pagination={true} navigation modules={[Pagination, Navigation]}>
-                {productItem.images.map((image, index) => (
+                {
+                productItem.images.map((image, index) => (
                   <SwiperSlide className={styles.swiper_slide} key={index}>
                     <img className={styles.swiper_img} src={image} alt='스와이퍼 이미지'/>
                   </SwiperSlide>
-                ))}
+                ))
+                }
               </Swiper>
         
             </div>
             <div className={styles.gallery_img_wrap}>
               <p className={styles.gallery_detail_title}>사진 차례로 보기</p>
-              {productItem.images.map((image, index) => (
+              {
+              productItem.images.map((image, index) => (
                 <div className={styles.gallery_show} key={index}>
                   <img className={styles.gallery_imgs} src={image} alt='스와이퍼 이미지'/>
                 </div>
-              ))}
+              ))
+              }
             </div>
 
           </section>
