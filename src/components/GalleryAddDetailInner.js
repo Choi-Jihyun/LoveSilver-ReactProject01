@@ -84,16 +84,16 @@ export default function GalleryAddDetailInner() {
 
     try {
       const snapshot = await get(ref(database, 'products'));
-      let productCount = 0;
+      let productCount = 1;
       snapshot.forEach(() => {
         productCount++;
       });
 
-      await set(ref(database, `products/0${productCount + 1}`), {
+      await set(ref(database, `products/0${productCount}`), {
         place: selectedLocation,
         // images: imagesArray,
         images: imagesArray,
-        id: `0${productCount + 1}`,
+        id: `0${productCount}`,
         title: title,
         date: selectedDate,
         body_text: bodyText
