@@ -156,7 +156,8 @@ export default function GalleryAddDetailInner() {
           </div>
 
           <label htmlFor="title">제목</label>
-          <input type="text" id="title" name="title" className={styles.input} defaultValue="테스트 중(수정 가능?)"/>
+          <input type="text" id="title" name="title" className={styles.input} defaultValue=""/>
+          {/* defaultvalue 값으로 수정할 수 있을지 해보자. */}
 
           <label htmlFor="content">내용</label>
           <textarea id="content" name="content" className={styles.textarea}></textarea>
